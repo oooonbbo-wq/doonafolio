@@ -43,7 +43,10 @@ python3 -m http.server 8000
 
 ## 트러블슈팅
 
-개발 중 발생한 주요 이슈와 원인·대응 내역.
+<details>
+<summary><b>개발 중 발생한 주요 이슈와 원인·대응 내역</b> (펼치기)</summary>
+
+<br>
 
 | # | 증상 | 원인 | 해결 |
 |---|------|------|------|
@@ -54,6 +57,13 @@ python3 -m http.server 8000
 | 5 | 카드 좌우 여백이 섹션마다 불일치 | 본문 카드는 `.wrap` 자체가 카드(풀폭)인 반면, 푸터 카드는 `.wrap` 내부 요소라 여백이 다름 | 본문 카드 `max-width`를 `calc(var(--maxw) - 60px)`로 맞추고 `main > section`에 좌우 패딩 부여해 정렬 통일 |
 | 6 | 좁은 화면에서 네비 메뉴 노출 안 됨 | 모바일에서 메뉴를 `display:none` 처리했으나 대체 UI 부재 | 680px 이하에서 **햄버거 메뉴(☰) + 드롭다운**으로 전환 (토글 JS 추가) |
 | 7 | 로컬 수정 사항이 브라우저에 미반영 | 파일 미저장 또는 정적 서버 캐시 | `Cmd+S` 저장 → `Cmd+Shift+R` 강제 새로고침 → 필요 시 DevTools `Disable cache` |
+| 8 | About 우측(Currently·Focus)이 좌측 본문과 위·아래 라인이 안 맞음 | 우측 컬럼이 단순 top/bottom 정렬이라 본문 높이와 어긋남 | 2단 그리드 `align-items:stretch` + 우측 `justify-content:space-between`(상단 Currently·하단 Focus), 본문 메타라인 `margin-top:auto`로 하단 고정해 양 라인 정렬 |
+| 9 | 스크롤 안내가 등장 직후 깜빡(밝기 점프) | 등장(`cuein`) 종료 opacity와 호흡(`cuefloat`) 시작 opacity 불일치 | 두 애니메이션 이음새의 opacity 값을 동일(.5)하게 맞춰 매끄럽게 연결 |
+| 10 | 긴 강조 문장이 좁은 화면에서 컬럼을 넘침(overflow) | `white-space:nowrap`을 전 구간에 적용 | `@media(min-width:1150px)`에서만 한 줄 고정, 그 이하는 정상 줄바꿈 |
+| 11 | 넓은 화면에서 이름(영문+한글)이 2줄로 떨어짐 | 폰트가 `vw` 기준으로 커지며 컬럼 폭 초과 | 영문+한글을 `flex`(`white-space:nowrap`) 한 묶음으로 고정하고 최대 크기 하향 조정 |
+| 12 | 큰 사인 글씨가 모바일에서 화면 밖으로 넘침 | 데스크탑 기준 대형 폰트가 작은 뷰포트에서 과도 | 680px 이하에서 `font-size` 축소(`clamp`), 우측 위치는 컨테이너 기준(`max()`)으로 네비·제목과 정렬 |
+
+</details>
 
 ## GitHub Pages 배포
 1. 이 폴더를 GitHub 저장소에 push

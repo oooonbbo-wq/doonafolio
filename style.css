@@ -316,6 +316,8 @@ main > section.sec-cream > .wrap{background:var(--cream);}
 .side-block .v{font-family:var(--display);font-size:clamp(18px,1.9vw,22px);font-weight:700;letter-spacing:-.02em;color:var(--ink);line-height:1.25;white-space:nowrap;}
 .side-block .v-sub{font-size:13.5px;color:var(--ink-soft);white-space:nowrap;}
 .side-block .chips{margin-bottom:0;}
+.side-block .chip{transition:background .2s,border-color .2s;}
+.side-block .chip:hover{background:transparent;}
 
 /* ============================================================
    PROJECTS — 팬톤 컬러칩 카드 (클릭 → 모달)
@@ -526,7 +528,11 @@ body.modal-lock{overflow:hidden;}
 @media(max-width:920px){
   .hero-meta{grid-template-columns:repeat(4,1fr);gap:10px;}
   .about-cols{grid-template-columns:1fr;gap:32px;}
-  .about-side{transform:none;justify-content:flex-start;gap:24px;}
+  .about-side{transform:none;justify-content:flex-start;gap:24px;order:2;}
+  /* 좁은 화면: 본문 → Currently·Focus → 생년/지역 순으로, 메타라인을 맨 아래로 */
+  .about-body-col{display:contents;}
+  .about-body{order:1;}
+  .about-meta-line{order:3;margin-top:8px;padding-top:0;}
   .skills-grid{grid-template-columns:1fr;}
   .projects{grid-template-columns:1fr;}
   .titem{grid-template-columns:1fr;gap:14px;}
