@@ -197,20 +197,28 @@ main > section.sec-cream > .wrap{background:var(--cream);}
   color:#fdf3d0;   /* 옐로우 도는 아이보리 */
   transform:translateY(-37%) rotate(0deg) skewX(-10deg);transform-origin:center;
   backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  /* 글자 다 뜬 뒤(2.2s) 배경 골든톤 쪽으로 살짝만 컬러 이동 (흰기 빠짐) */
+  animation:signtint 1.4s ease 2.2s forwards;
 }
+@keyframes signtint{to{color:#fae3a2;}}
 /* 글자 하나씩 써지는 느낌 — 투명도(fade)만 써서 잔상 없이 부드럽게 */
 .hero-sign .ch{display:inline-block;opacity:0;animation:charin .4s ease forwards;will-change:opacity;}
 @keyframes charin{to{opacity:1;}}
 
-/* scroll down 안내 화살표 */
+/* scroll down 안내 — 타이포가 다 뜬 뒤(약 5초) 등장 → Scroll+화살표 한 몸으로 두둥실 + 반짝 */
 .scroll-cue{
-  position:absolute;left:50%;bottom:52px;transform:translateX(-50%);z-index:3;
-  display:flex;align-items:center;justify-content:center;color:var(--ink);
-  opacity:.7;transition:opacity .25s;
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;
+  display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--ink);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  opacity:0;
+  animation:cuein .7s ease 5s both, cuefloat 2.6s ease-in-out 5.7s infinite;
 }
-.scroll-cue:hover{opacity:1;}
-.scroll-cue svg{width:26px;height:26px;animation:scrollbounce 1.6s ease-in-out infinite;}
-@keyframes scrollbounce{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+@keyframes cuein{from{opacity:0;transform:translateX(-50%) translateY(12px);}to{opacity:.5;transform:translateX(-50%) translateY(0);}}
+@keyframes cuefloat{
+  0%,100%{transform:translateX(-50%) translateY(0);opacity:.5;}
+  50%{transform:translateX(-50%) translateY(-8px);opacity:.95;}
+}
+.scroll-cue svg{width:24px;height:24px;}
 .hero-panel{
   position:relative;
   background:transparent;
@@ -280,14 +288,34 @@ main > section.sec-cream > .wrap{background:var(--cream);}
 .sec-head .desc{margin-top:14px;color:var(--ink-soft);font-size:15.5px;max-width:58ch;}
 
 /* ============================================================
-   ABOUT
+   ABOUT — 2단 컴팩트 레이아웃 (좌: 소개·이름·본문 / 우: Currently·Focus)
    ============================================================ */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start;}
-.about-lead{font-family:var(--display);font-weight:500;font-size:clamp(21px,2.7vw,28px);line-height:1.42;letter-spacing:-.02em;}
-.about-lead b{color:var(--accent-ink);font-weight:700;}
-.about-body p{color:var(--ink-soft);font-size:15px;line-height:1.85;margin-bottom:18px;}
+#about > .wrap{padding:84px 60px;}   /* 세로 여백 확대 (~1.3배) */
+.about-layout{display:block;}
+.about-cols{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:stretch;}
+
+.about-kicker{margin-bottom:30px;}
+.about-title{letter-spacing:-.02em;line-height:1.12;margin-bottom:52px;}  /* 아래 여백 2배 */
+.about-title .t-thin{display:block;font-weight:300;font-size:clamp(18px,2.1vw,26px);color:var(--ink-soft);letter-spacing:-.01em;}
+.about-title .about-namerow{display:flex;align-items:baseline;flex-wrap:nowrap;gap:.85em;margin-top:12px;white-space:nowrap;}
+.about-title .about-name{font-family:'Lobster',var(--display);font-weight:400;font-size:clamp(36px,5vw,62px);letter-spacing:0;color:var(--ink);line-height:1.05;}
+.about-title .about-name-kr{font-family:var(--sans);font-weight:400;font-size:clamp(18px,2.5vw,30px);letter-spacing:-.04em;color:var(--ink);line-height:1;}  /* 한 줄 · 영문과 간격 넓힘 */
+.about-body p{color:var(--ink-soft);font-size:15px;line-height:1.8;margin-bottom:16px;}
+.about-body .about-lead{margin-bottom:22px;}
 .about-body p:last-child{margin-bottom:0;}
 .about-body strong{color:var(--ink);font-weight:600;background:linear-gradient(transparent 62%,var(--accent-soft) 62%);padding:0 2px;}
+.about-body .mark{background:linear-gradient(transparent 62%,var(--accent-soft) 62%);padding:0 2px;}  /* 형광펜만 (굵기 X) */
+.about-body .nowrap{white-space:normal;}
+@media(min-width:1150px){ .about-body .nowrap{white-space:nowrap;} }  /* 넓은 화면에서만 한 줄 고정 */
+.about-body-col{display:flex;flex-direction:column;}
+.about-meta-line{display:flex;gap:30px;margin-top:auto;padding-top:26px;font-family:var(--mono);font-size:12.5px;color:var(--ink-muted);letter-spacing:.02em;}
+
+.about-side{display:flex;flex-direction:column;justify-content:space-between;padding-bottom:4px;transform:translateX(-1cm);}  /* CURRENTLY 위·FOCUS 아래로 꽉 채움 + 왼쪽 1cm 이동 · FOCUS 살짝 올림 */
+.side-block .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px;}
+.side-block .v-line{display:flex;flex-direction:column;gap:6px;}
+.side-block .v{font-family:var(--display);font-size:clamp(18px,1.9vw,22px);font-weight:700;letter-spacing:-.02em;color:var(--ink);line-height:1.25;white-space:nowrap;}
+.side-block .v-sub{font-size:13.5px;color:var(--ink-soft);white-space:nowrap;}
+.side-block .chips{margin-bottom:0;}
 
 /* ============================================================
    PROJECTS — 팬톤 컬러칩 카드 (클릭 → 모달)
@@ -497,7 +525,8 @@ body.modal-lock{overflow:hidden;}
    ============================================================ */
 @media(max-width:920px){
   .hero-meta{grid-template-columns:repeat(4,1fr);gap:10px;}
-  .about-grid{grid-template-columns:1fr;gap:28px;}
+  .about-cols{grid-template-columns:1fr;gap:32px;}
+  .about-side{transform:none;justify-content:flex-start;gap:24px;}
   .skills-grid{grid-template-columns:1fr;}
   .projects{grid-template-columns:1fr;}
   .titem{grid-template-columns:1fr;gap:14px;}
@@ -538,4 +567,5 @@ body.modal-lock{overflow:hidden;}
   *{animation:none!important;transition:none!important;}
   .reveal{opacity:1;transform:none;}
   .hero-sign .ch{opacity:1;}
+  .scroll-cue{opacity:.7;}
 }
