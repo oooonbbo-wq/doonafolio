@@ -1,5 +1,10 @@
 /* 이승연 포트폴리오 — 스크롤 애니메이션 · 네비 활성표시 */
 (function(){
+  /* 새로고침 시 항상 최상단에서 시작 */
+  if('scrollRestoration' in history){ history.scrollRestoration='manual'; }
+  window.scrollTo(0,0);
+  window.addEventListener('load',function(){ window.scrollTo(0,0); });
+
   /* hero 사인 — 글자 하나씩 써지게 분해 */
   var sign=document.querySelector('.hero-sign');
   if(sign){
@@ -18,6 +23,32 @@
         sign.appendChild(s);
       });
     });
+  }
+
+  /* projects 'PROJECT' 사인 — 글자 분해 + 스크롤 진입 시 모션 */
+  var psign=document.querySelector('.projects-sign');
+  if(psign){
+    var plines=psign.innerHTML.split(/<br\s*\/?>/i);
+    psign.innerHTML='';
+    var pi=0;
+    plines.forEach(function(line,li){
+      if(li>0) psign.appendChild(document.createElement('br'));
+      line.split('').forEach(function(c){
+        var s=document.createElement('span');
+        s.className='ch';
+        if(c===' '){ s.innerHTML='&nbsp;'; }
+        else { s.textContent=c; }
+        s.style.animationDelay=(0.05+pi*0.07).toFixed(2)+'s';
+        pi++;
+        psign.appendChild(s);
+      });
+    });
+    if('IntersectionObserver' in window){
+      var po=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ psign.classList.add('in'); po.unobserve(psign); } });
+      },{threshold:.3});
+      po.observe(psign);
+    } else { psign.classList.add('in'); }
   }
 
   /* nav scrolled state + 스크롤 내리면 숨김 / 올리면 다시 표시 */
@@ -79,44 +110,42 @@
     secs.forEach(function(s){so.observe(s);});
   }
 
-  /* project modal */
-  var modal=document.getElementById('projectModal');
-  if(modal){
-    var content=modal.querySelector('.modal-content');
-    var win=modal.querySelector('.modal-window');
-    var lastFocused=null;
-
-    function openModal(card){
+  /* 프로젝트 — 버튼 클릭 시 오른쪽 패널이 해당 프로젝트로 바뀜 */
+  var pAside=document.querySelector('.projects-aside');
+  var pIntro=document.querySelector('.projects-intro');
+  var pDetail=document.querySelector('.projects-detail');
+  if(pAside && pIntro && pDetail){
+    function showProject(card){
       var tpl=card.querySelector('.pcard-detail');
       if(!tpl) return;
-      lastFocused=document.activeElement;
-      content.innerHTML='';
-      content.appendChild(tpl.content.cloneNode(true));
-      /* 카드의 컬러칩 토큰을 모달 창으로 전달 */
-      win.setAttribute('style',card.getAttribute('style')||'');
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden','false');
-      document.body.classList.add('modal-lock');
-      win.scrollTop=0;
-      var closeBtn=modal.querySelector('.modal-close');
-      if(closeBtn) closeBtn.focus();
+      pDetail.innerHTML='';
+      var back=document.createElement('button');
+      back.type='button'; back.className='pd-back';
+      back.innerHTML='← 나가기';
+      back.addEventListener('click',hideProject);
+      pDetail.appendChild(back);
+      pDetail.appendChild(tpl.content.cloneNode(true));
+      /* 카드 컬러칩 토큰을 패널로 전달 */
+      pAside.setAttribute('style', card.getAttribute('style')||'');
+      pAside.classList.add('detail-open');
+      pIntro.hidden=true; pDetail.hidden=false;
+      document.querySelectorAll('.pcard').forEach(function(c){ c.classList.toggle('active', c===card); });
     }
-    function closeModal(){
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-      document.body.classList.remove('modal-lock');
-      if(lastFocused && lastFocused.focus) lastFocused.focus();
+    function hideProject(){
+      pIntro.hidden=false; pDetail.hidden=true; pDetail.innerHTML='';
+      pAside.removeAttribute('style');
+      pAside.classList.remove('detail-open');
+      document.querySelectorAll('.pcard').forEach(function(c){ c.classList.remove('active'); });
     }
-
-    document.querySelectorAll('.pcard').forEach(function(card){
-      var face=card.querySelector('.pcard-face');
-      if(face) face.addEventListener('click',function(){ openModal(card); });
-    });
-    modal.querySelectorAll('[data-close]').forEach(function(el){
-      el.addEventListener('click',closeModal);
+    document.querySelectorAll('.pcard .pcard-face').forEach(function(face){
+      face.addEventListener('click',function(){
+        var card=face.closest('.pcard');
+        if(card.classList.contains('active')) hideProject();  /* 같은 버튼 다시 누르면 취소 */
+        else showProject(card);
+      });
     });
     document.addEventListener('keydown',function(e){
-      if(e.key==='Escape' && modal.classList.contains('open')) closeModal();
+      if(e.key==='Escape' && !pDetail.hidden) hideProject();
     });
   }
 })();

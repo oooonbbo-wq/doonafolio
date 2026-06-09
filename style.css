@@ -281,11 +281,14 @@ main > section.sec-cream > .wrap{background:var(--cream);}
    SECTION HEADINGS
    ============================================================ */
 .sec-head{margin-bottom:46px;}
-.sec-head .top{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;padding:5px 12px 5px 6px;border-radius:var(--r-pill);background:var(--cream);border:1px solid var(--line);}
-.sec-head .num{font-family:var(--mono);font-size:11px;font-weight:700;color:#231400;background:var(--accent);padding:3px 8px;border-radius:var(--r-pill);}
-.sec-head .label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted);}
+/* About 'NN / Label' 미니멀 모노 라벨과 통일 */
+.sec-head .top{display:inline-flex;align-items:center;gap:7px;margin-bottom:16px;}
+.sec-head .num{font-family:var(--mono);font-size:11.5px;font-weight:400;letter-spacing:.18em;color:var(--ink-muted);}
+.sec-head .num::after{content:'/';margin-left:7px;color:var(--ink-muted);}
+.sec-head .label{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted);}
 .sec-head h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.2vw,48px);letter-spacing:-.03em;line-height:1.06;}
-.sec-head .desc{margin-top:14px;color:var(--ink-soft);font-size:15.5px;max-width:58ch;}
+.sec-head .desc{margin-top:14px;color:var(--ink-soft);font-size:15.5px;max-width:58ch;word-break:keep-all;}
+@media(min-width:1000px){ #projects .sec-head .desc{white-space:nowrap;max-width:none;} }  /* 넓은 화면: 한 줄, 좁으면 줄바꿈 */
 
 /* ============================================================
    ABOUT — 2단 컴팩트 레이아웃 (좌: 소개·이름·본문 / 우: Currently·Focus)
@@ -322,48 +325,87 @@ main > section.sec-cream > .wrap{background:var(--cream);}
 /* ============================================================
    PROJECTS — 팬톤 컬러칩 카드 (클릭 → 모달)
    ============================================================ */
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+/* 왼쪽 세로 카드 리스트 + 오른쪽 PROJECT 사인 */
+.projects-layout{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:stretch;}
+.projects{display:flex;flex-direction:column;gap:14px;width:100px;}  /* 정사각형 버튼 열 */
 .pcard{position:relative;--chip:var(--accent);--chip-ink:var(--accent-ink);}
-.pcard.feat{grid-column:1 / -1;}
+.pcard.feat{grid-column:auto;}
 
-/* 클릭 가능한 카드 face = 컬러칩 오브젝트 */
+/* 오른쪽 영역 — 버튼 영역 빼고 가로·세로 센터 */
+.projects-aside{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100%;}
+.projects-intro{width:100%;}
+.projects-sign{
+  font-family:'Lobster',var(--display);font-weight:400;color:var(--ink);
+  font-size:clamp(40px,7vw,112px);line-height:1.1;letter-spacing:0;
+  text-align:center;white-space:nowrap;pointer-events:none;
+}
+.projects-sign .ch{display:inline-block;opacity:0;}
+.projects-sign.in .ch{animation:charin .4s ease forwards;}
+.projects-tagline{
+  margin-top:22px;text-align:center;color:var(--ink-soft);
+  font-size:15px;line-height:1.75;
+  word-break:keep-all;opacity:0;
+}
+@media(min-width:1000px){ .projects-tagline{white-space:nowrap;} }  /* 넓은 화면: 한 줄 */
+/* 사인 모션이 끝난 뒤 태그라인 서서히 등장 */
+.projects-sign.in ~ .projects-tagline{animation:taglinein 1s ease 1.3s forwards;}
+@keyframes taglinein{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+/* ← Click 힌트 — Scroll 안내와 동일한 폰트·크기·효과(두둥실+호흡) */
+.click-hint{
+  display:flex;justify-content:center;align-items:center;margin-top:20px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink);opacity:0;
+}
+.projects-sign.in ~ .click-hint{animation:hintin .7s ease 2s both, hintfloat 2.6s ease-in-out 2.7s infinite;}
+@keyframes hintin{from{opacity:0;transform:translateY(10px);}to{opacity:.5;transform:translateY(0);}}
+@keyframes hintfloat{0%,100%{transform:translateY(0);opacity:.5;}50%{transform:translateY(-8px);opacity:.95;}}
+
+/* 클릭 시 나타나는 상세 — 창처럼 띄우지 않고 오른쪽 영역에 그대로 */
+.projects-detail{width:100%;max-width:680px;background:transparent;border:none;box-shadow:none;transform:translateY(-2cm);}
+.projects-aside.detail-open{justify-content:flex-start;}  /* 상세 열리면 상단 고정 — 클릭마다 안 내려감 */
+.projects-detail .modal-hd{background:transparent;color:var(--ink);padding:0 0 8px;}
+.projects-detail .modal-body{padding:0;}
+.projects-detail .modal-hd h3{color:var(--ink);}
+/* 부제·설명·정보박스 간격 좁히기 */
+.projects-detail .m-sub{margin-top:4px;}
+.projects-detail .m-desc{margin-bottom:14px;line-height:1.6;}
+.projects-detail .m-facts{margin-bottom:18px;}
+.projects-detail .m-fact .fv{text-align:right;}  /* 값만 오른쪽, 라벨은 왼쪽 그대로 */
+.m-logo-row{display:flex;align-items:flex-end;gap:10px;margin-top:6px;flex-wrap:wrap;}
+.m-logo{height:84px;width:auto;max-width:100%;display:block;}
+.m-title-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.m-plat{
+  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-soft);background:var(--cream);border:1px solid var(--line);
+  padding:4px 10px;border-radius:var(--r-pill);
+}
+.pd-back{
+  display:inline-flex;align-items:center;gap:6px;margin:0 0 14px;
+  font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.04em;
+  color:var(--ink);background:none;border:none;cursor:pointer;padding:4px 0;transition:opacity .2s;
+}
+.pd-back:hover{opacity:.6;}
+
+/* 클릭 가능한 카드 face = 컬러 블록 (좌상단 번호 · 우상단 화살표 · 좌하단 이름) */
 .pcard-face{
-  width:100%;text-align:left;cursor:pointer;display:flex;flex-direction:column;
-  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
-  overflow:hidden;color:inherit;
+  position:relative;width:100%;text-align:left;cursor:pointer;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:100px;padding:12px 13px;
+  background:var(--chip);border:1px solid var(--chip-border,transparent);border-radius:12px;
+  color:var(--chip-on,#231400);overflow:hidden;
   box-shadow:var(--shadow-sm);
-  transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s,border-color .35s;
+  transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s;
 }
-.pcard-face:hover{transform:translateY(-6px) rotate(-.3deg);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--chip) 50%,var(--line));}
-.pcard-face:focus-visible{outline:3px solid var(--chip);outline-offset:3px;}
+.pcard-face:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
+.pcard-face:focus-visible{outline:3px solid var(--ink);outline-offset:3px;}
 
-/* 팬톤 컬러 바 */
-.pc-bar{height:84px;background:var(--chip);position:relative;display:flex;align-items:flex-end;justify-content:space-between;padding:14px 18px;}
-.pcard.feat .pc-bar{height:108px;}
-.pc-bar .pc-no{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--chip-on,#231400);opacity:.82;}
-.pc-bar .pc-hex{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--chip-on,#231400);opacity:.62;}
-.pc-bar .pc-open{
-  position:absolute;top:14px;right:16px;width:34px;height:34px;border-radius:var(--r-pill);
-  background:rgba(255,253,246,.92);display:grid;place-items:center;color:var(--ink);
-  transition:transform .3s,background .25s;
-}
-.pcard-face:hover .pc-open{transform:rotate(45deg) scale(1.06);background:#fff;}
+.pcard-face .pc-no{position:absolute;top:10px;left:13px;max-width:42px;line-height:1.2;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--chip-on,#231400);}
+.pcard-face .pc-open{position:absolute;top:9px;right:11px;color:var(--chip-on,#231400);transition:transform .3s cubic-bezier(.2,.7,.3,1);}
+.pcard-face:hover .pc-open,
+.pcard.active .pc-open{transform:rotate(45deg);}  /* hover · 선택된 카드: 시계방향 45도 회전 */
 .pc-open svg{width:15px;height:15px;}
-
-.pc-face-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:9px;flex:1;}
-.pc-badges{display:flex;gap:7px;flex-wrap:wrap;align-items:center;min-height:22px;}
-.pc-flag{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--chip-on,#231400);background:var(--chip);padding:4px 9px;border-radius:var(--r-pill);}
-.pc-live{font-family:var(--mono);font-size:10.5px;color:var(--chip-ink);display:inline-flex;align-items:center;gap:6px;font-weight:700;}
-.pc-live::before{content:'';width:7px;height:7px;border-radius:50%;background:#22b572;box-shadow:0 0 0 3px color-mix(in srgb,#22b572 24%,transparent);}
-.pcard h3{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.6vw,29px);letter-spacing:-.025em;line-height:1.1;}
-.pc-sub{font-size:14px;color:var(--ink-soft);font-weight:500;line-height:1.5;}
-.pc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
-.pc-tags span{font-family:var(--mono);font-size:10.5px;padding:4px 9px;border-radius:var(--r-xs);background:var(--cream);border:1px solid var(--line);color:var(--ink-soft);}
-.pc-foot{margin-top:auto;padding-top:16px;display:flex;align-items:center;justify-content:space-between;border-top:1px dashed var(--line);}
-.pc-when{font-family:var(--mono);font-size:11px;color:var(--ink-muted);}
-.pc-cta{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--chip-ink);display:inline-flex;align-items:center;gap:6px;}
-.pc-cta .arr{transition:transform .25s;}
-.pcard-face:hover .pc-cta .arr{transform:translateX(4px);}
+.pcard-face h3{font-family:var(--display);font-weight:400;font-size:11px;letter-spacing:-.02em;line-height:1.2;color:var(--chip-on,#231400);overflow-wrap:anywhere;}
 
 /* ============================================================
    PROJECT MODAL — 아이보리 대형 창
@@ -428,7 +470,7 @@ main > section.sec-cream > .wrap{background:var(--cream);}
   display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;
   padding:10px 17px;border-radius:var(--r-pill);border:1px solid var(--line);color:var(--ink);transition:all .22s;
 }
-.plink:hover{border-color:var(--chip,var(--accent));color:var(--chip-ink,var(--accent-ink));transform:translateY(-2px);background:var(--accent-soft);}
+.plink:hover{border-color:var(--ink);color:var(--ink);transform:translateY(-2px);background:transparent;}
 .plink svg{width:14px;height:14px;}
 .plink.primary{background:var(--ink);color:var(--paper);border-color:var(--ink);}
 .plink.primary:hover{background:var(--chip,var(--accent));border-color:var(--chip,var(--accent));color:#231400;}
@@ -467,7 +509,7 @@ main > section.sec-cream > .wrap{background:var(--cream);}
 /* ============================================================
    CONTACT — 보색 블루 패널
    ============================================================ */
-.outro{padding:24px 0;}
+.outro{padding:24px 30px;}   /* 다른 섹션과 동일한 좌우 여백 */
 main > section.outro > .wrap{
   background:var(--blue);color:#f2f4ff;border:1px solid color-mix(in srgb,var(--blue) 70%,#000 12%);
   border-radius:var(--r-xl);overflow:hidden;position:relative;padding:0;
@@ -534,7 +576,9 @@ body.modal-lock{overflow:hidden;}
   .about-body{order:1;}
   .about-meta-line{order:3;margin-top:8px;padding-top:0;}
   .skills-grid{grid-template-columns:1fr;}
-  .projects{grid-template-columns:1fr;}
+  .projects-layout{gap:20px;}   /* 항상 좌우 유지(버튼 | Team Project) */
+  .projects{width:80px;}        /* 좁은 화면: 버튼 줄여 사인 공간 확보 */
+  .projects-tagline{font-size:13px;margin-top:14px;}
   .titem{grid-template-columns:1fr;gap:14px;}
   .titem .left .tag{margin-top:8px;}
   main > section > .wrap{padding:48px 36px;}
@@ -558,6 +602,7 @@ body.modal-lock{overflow:hidden;}
   .hero-panel{padding:36px 26px 34px;}
   .hero-meta{grid-template-columns:1fr;}
   main > section{padding:14px 16px;}
+  .outro{padding:14px 16px;}
   main > section > .wrap{padding:40px 24px;border-radius:var(--r-lg);}
   .m-facts{grid-template-columns:1fr;}
   .stat{min-width:calc(50% - 5px);}
@@ -573,5 +618,8 @@ body.modal-lock{overflow:hidden;}
   *{animation:none!important;transition:none!important;}
   .reveal{opacity:1;transform:none;}
   .hero-sign .ch{opacity:1;}
+  .projects-sign .ch{opacity:1;}
+  .projects-tagline{opacity:1;}
+  .click-hint{opacity:.75;}
   .scroll-cue{opacity:.7;}
 }

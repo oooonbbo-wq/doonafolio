@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 새로고침 시 항상 최상단에서 시작 (head에서 가장 먼저 실행) -->
+<script>
+  if('scrollRestoration' in history){ history.scrollRestoration='manual'; }
+  if(location.hash){ history.replaceState(null,'',location.pathname+location.search); }
+</script>
 <title>이승연 — AI 서비스 프론트엔드 개발자 포트폴리오</title>
 <meta name="description" content="디자이너 출신 AI 서비스 프론트엔드 개발자 이승연의 포트폴리오. React, TypeScript, Flutter, LLM 기반 서비스 프로젝트를 확인해보세요.">
 <meta name="author" content="이승연">
@@ -107,52 +112,35 @@
 <section id="projects" class="sec-cream">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="top"><span class="num">01</span><span class="label">Selected Work</span></div>
-      <h2>Projects</h2>
-      <p class="desc">AI·데이터 분석부터 LLM 기반 웹·모바일 서비스까지, 매 프로젝트마다 프론트엔드를 한 단계씩 키워 왔습니다.</p>
+      <div class="top"><span class="num">01</span><span class="label">Project</span></div>
     </div>
 
+    <div class="projects-layout">
     <div class="projects">
 
       <!-- withDOG -->
       <article class="pcard feat reveal" style="--chip:var(--accent);--chip-ink:var(--accent-ink);--chip-on:#231400;">
         <button class="pcard-face" type="button" aria-haspopup="dialog">
-          <div class="pc-bar">
-            <span class="pc-no">PROJECT 01</span>
-            <span class="pc-hex">PANTONE · 1375 C</span>
-            <span class="pc-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-          </div>
-          <div class="pc-face-body">
-            <div class="pc-badges">
-              <span class="pc-flag">Final · 우수상</span>
-              <span class="pc-live">운영 중</span>
-            </div>
-            <h3>withDOG</h3>
-            <span class="pc-sub">반려견 성향 기반 장소 추천 &amp; AI 그림일기 챗봇 서비스</span>
-            <div class="pc-tags"><span>React</span><span>TypeScript</span><span>Flutter</span><span>LLM</span><span>RAG</span></div>
-            <div class="pc-foot">
-              <span class="pc-when">2026.03 – 05 · APM · FE · AI</span>
-              <span class="pc-cta">자세히 보기 <span class="arr">→</span></span>
-            </div>
-          </div>
+          <span class="pc-no">Final</span>
+          <span class="pc-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+          <h3>withDOG</h3>
         </button>
         <template class="pcard-detail">
           <div class="modal-hd">
-            <div class="m-no">PROJECT 01 · PANTONE 1375 C</div>
-            <div class="m-badges">
-              <span class="m-flag">Final · 우수상</span>
-              <a class="m-live" href="https://withdog.kro.kr" target="_blank" rel="noopener">withdog.kro.kr 운영 중</a>
+            <div class="m-logo-row">
+              <img class="m-logo" src="assets/withDOG_가로형_logo.png" alt="withDOG">
+              <span class="m-plat">Web</span>
+              <span class="m-plat">Mobile</span>
             </div>
-            <h3>withDOG</h3>
             <div class="m-sub">반려견 성향 기반 장소 추천 &amp; AI 그림일기 챗봇 서비스</div>
           </div>
           <div class="modal-body">
+            <p class="m-desc">반려견·보호자 성향을 기반으로 동반 가능한 장소를 추천하고, 방문 경험을 강아지 시점의 AI 그림일기로 기록하는 챗봇 웹·앱 서비스. APM을 맡아 기획·화면 설계부터 React 웹, Flutter 앱, AI 그림일기 생성·평가 파이프라인까지 담당했습니다.</p>
             <div class="m-facts">
               <div class="m-fact"><div class="fk">Period</div><div class="fv">2026.03 – 05</div></div>
-              <div class="m-fact"><div class="fk">Team</div><div class="fv">3인 · SK네트웍스 AI캠프 23기</div></div>
+              <div class="m-fact"><div class="fk">Team</div><div class="fv">3인</div></div>
               <div class="m-fact"><div class="fk">Role</div><div class="fv">APM · FE · Flutter · AI</div></div>
             </div>
-            <p class="m-desc">반려견·보호자 성향을 기반으로 동반 가능한 장소를 추천하고, 방문 경험을 강아지 시점의 AI 그림일기로 기록하는 챗봇 웹·앱 서비스. APM을 맡아 기획·화면 설계부터 React 웹, Flutter 앱, AI 그림일기 생성·평가 파이프라인까지 담당했습니다.</p>
             <h5 class="m-h">Key Work</h5>
             <ul class="pc-points">
               <li>Vite·React·TypeScript SPA 구성, react-router-dom v7 라우팅 — <b>LLM 텍스트·이미지 응답을 비동기 로딩 → 결과 카드 UI 흐름</b>으로 연결 (React Context·useState 상태 관리)</li>
@@ -186,92 +174,75 @@
       </article>
 
       <!-- On_You -->
-      <article class="pcard reveal" style="--chip:var(--blue);--chip-ink:var(--blue-ink);--chip-on:#eef1ff;">
+      <article class="pcard reveal" style="--chip:#8fc94a;--chip-ink:#4f7a13;--chip-on:#1b2e08;">
         <button class="pcard-face" type="button" aria-haspopup="dialog">
-          <div class="pc-bar">
-            <span class="pc-no">PROJECT 02</span>
-            <span class="pc-hex">PANTONE · 2728 C</span>
-            <span class="pc-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-          </div>
-          <div class="pc-face-body">
-            <div class="pc-badges"><span class="pc-flag">3·4차 연속</span></div>
-            <h3>온유 <span style="font-family:var(--mono);font-size:.5em;color:var(--ink-muted);font-weight:400;">On_You</span></h3>
-            <span class="pc-sub">AI 피부 분석 · 성분 OCR · 올리브영 제품 추천 챗봇</span>
-            <div class="pc-tags"><span>Flutter</span><span>AWS</span><span>VLM OCR</span><span>Brand</span></div>
-            <div class="pc-foot">
-              <span class="pc-when">2026.02 – 03 · Mobile UI · Infra</span>
-              <span class="pc-cta">자세히 보기 <span class="arr">→</span></span>
-            </div>
-          </div>
+          <span class="pc-no">3rd 4th</span>
+          <span class="pc-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+          <h3>On_You</h3>
         </button>
         <template class="pcard-detail">
           <div class="modal-hd">
-            <div class="m-no">PROJECT 02 · PANTONE 2728 C</div>
-            <div class="m-badges"><span class="m-flag">3·4차 연속</span></div>
-            <h3>온유 · On_You</h3>
+            <div class="m-logo-row">
+              <img class="m-logo" src="assets/On_You_logo.png" alt="On_You">
+              <span class="m-plat">Web</span>
+              <span class="m-plat">Mobile</span>
+            </div>
             <div class="m-sub">AI 피부 분석 · 성분 OCR · 올리브영 제품 추천 챗봇</div>
           </div>
           <div class="modal-body">
+            <p class="m-desc">딥러닝 피부 분석, VLM 기반 전성분 OCR, 올리브영 실상품 검증 추천을 결합한 멀티모달 스킨케어 챗봇. AWS 인프라 구축·운영과 Flutter 모바일 앱 UI/카메라 비전 연동, 브랜드 아이덴티티를 담당했습니다.</p>
             <div class="m-facts">
               <div class="m-fact"><div class="fk">Period</div><div class="fv">2026.02 – 03</div></div>
               <div class="m-fact"><div class="fk">Team</div><div class="fv">5인</div></div>
-              <div class="m-fact"><div class="fk">Role</div><div class="fv">AWS · Mobile UI · Brand</div></div>
+              <div class="m-fact"><div class="fk">Role</div><div class="fv">AOS / AWS / UI</div></div>
             </div>
-            <p class="m-desc">딥러닝 피부 분석, VLM 기반 전성분 OCR, 올리브영 실상품 검증 추천을 결합한 멀티모달 스킨케어 챗봇. AWS 인프라 구축·운영과 Flutter 모바일 앱 UI/카메라 비전 연동, 브랜드 아이덴티티를 담당했습니다.</p>
             <h5 class="m-h">Key Work</h5>
             <ul class="pc-points">
-              <li>외부 링크 활용이 막힌 상황에서 <b>'집에서 쓰는 올리브영형 스킨케어 챗봇'으로 서비스를 재정의</b> — 추천이 실제 구매로 이어지도록 배경·목적 재설계</li>
-              <li>Flutter 카메라 비전 연동 (피부 촬영 → 분석 흐름), FastAPI 응답 API 연동, 화면 5개를 2주 일정 내 완성</li>
-              <li>AWS EC2·S3·MariaDB 인프라 구축·운영, 로고·인포그래픽 등 브랜드 리소스 제작</li>
+              <li><b>Flutter 단독 개발</b> — 웹 서비스와 동일한 기능의 네이티브 안드로이드 앱을 2주 일정 내 구현 (로그인·챗봇·분석·위시리스트 등 21개 화면, Material 3)</li>
+              <li><b>Mobile 실시간 카메라 비전 구현 (Google ML Kit)</b> — 얼굴 감지 + Yaw/Roll 각도 검증(정면/좌/우), Luma 밝기 분석, 그림자·흔들림 감지, 촬영 후 Laplacian 선명도 2차 검증</li>
+              <li><b>FastAPI REST API 연동</b> — Bearer 토큰 인증, 이미지 업로드/분석/챗봇/위시리스트</li>
+              <li>브랜드 아이덴티티·로고·인포그래픽 등 <b>UI 리소스 제작</b></li>
+              <li><b>AWS EC2·S3·MariaDB 인프라 구축·운영</b></li>
+              <li>외부 링크 정책 제약 상황에서 '집에서 쓰는 올리브영형 스킨케어 챗봇'으로 서비스를 재정의하여 제품 추천이 실제 올리브영 구매로 이어지도록 배경·목적 재설계</li>
+              <li>피부 MBTI(12문항·8유형 캐릭터)·퍼스널컬러 진단 콘텐츠 기획 및 구현</li>
             </ul>
             <h5 class="m-h">Tech Stack</h5>
             <div class="chips">
-              <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">ChromaDB</span><span class="chip">AWS EC2·S3</span><span class="chip">MariaDB</span><span class="chip">Docker·Nginx</span>
+              <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Google ML Kit</span><span class="chip">AWS EC2·S3</span><span class="chip">MariaDB</span><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">Python</span>
             </div>
             <div class="plinks">
               <a class="plink" href="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN23-4th-3TEAM" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-                GitHub (4차)
+                GitHub (4th)
               </a>
-              <a class="plink" href="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN23-3rd-3TEAM" target="_blank" rel="noopener">GitHub (3차)</a>
+              <a class="plink" href="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN23-3rd-3TEAM" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+                GitHub (3rd)
+              </a>
             </div>
           </div>
         </template>
       </article>
 
       <!-- Steam -->
-      <article class="pcard reveal" style="--chip:#211c14;--chip-ink:var(--ink);--chip-on:#ffd98a;">
+      <article class="pcard reveal" style="--chip:#d3d0c8;--chip-ink:#2b2b2b;--chip-on:#161616;">
         <button class="pcard-face" type="button" aria-haspopup="dialog">
-          <div class="pc-bar">
-            <span class="pc-no">PROJECT 03</span>
-            <span class="pc-hex">PANTONE · BLACK 6 C</span>
-            <span class="pc-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-          </div>
-          <div class="pc-face-body">
-            <div class="pc-badges"><span class="pc-flag">Analytics</span></div>
-            <h3>Steam 이탈률 예측</h3>
-            <span class="pc-sub">리뷰·행동 데이터 기반 유저 이탈 예측 (AI 분석)</span>
-            <div class="pc-tags"><span>Python</span><span>LightGBM</span><span>XGBoost</span><span>ML</span></div>
-            <div class="pc-foot">
-              <span class="pc-when">2026.01 · Analytics Lead</span>
-              <span class="pc-cta">자세히 보기 <span class="arr">→</span></span>
-            </div>
-          </div>
+          <span class="pc-no">2nd</span>
+          <span class="pc-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+          <h3>Churn</h3>
         </button>
         <template class="pcard-detail">
           <div class="modal-hd">
-            <div class="m-no">PROJECT 03 · PANTONE BLACK 6 C</div>
-            <div class="m-badges"><span class="m-flag">Analytics</span></div>
-            <h3>Steam 게임 이탈률 예측</h3>
+            <div class="m-title-row"><h3>Steam 게임 이탈률 예측</h3><span class="m-plat">Web</span></div>
             <div class="m-sub">리뷰·행동 데이터 기반 유저 이탈 예측 (AI 분석)</div>
           </div>
           <div class="modal-body">
+            <p class="m-desc">Steam 상위 50위 게임의 리뷰·유저 행동 데이터(약 100만 건)로 장르 특성을 반영한 이탈(Churn) 예측 기준을 설계. 장르별 이탈 정의·라벨링 정책 수립, 전처리, 모델 비교 실험, 데이터 불균형 대응, 해석 가능성을 고려한 모델 선정과 README 작성을 담당했습니다.</p>
             <div class="m-facts">
               <div class="m-fact"><div class="fk">Period</div><div class="fv">2026.01</div></div>
               <div class="m-fact"><div class="fk">Team</div><div class="fv">5인</div></div>
               <div class="m-fact"><div class="fk">Role</div><div class="fv">Analytics Lead · ML</div></div>
             </div>
-            <p class="m-desc">Steam 상위 50위 게임의 리뷰·유저 행동 데이터(약 100만 건)로 장르 특성을 반영한 이탈(Churn) 예측 기준을 설계. 장르별 이탈 정의·라벨링 정책 수립, 전처리, 모델 비교 실험, 데이터 불균형 대응, 해석 가능성을 고려한 모델 선정과 README 작성을 담당했습니다.</p>
             <h5 class="m-h">Impact</h5>
             <div class="stats">
               <div class="stat"><div class="n">0.77</div><div class="t">Precision</div></div>
@@ -293,38 +264,24 @@
       </article>
 
       <!-- 자동차 -->
-      <article class="pcard reveal" style="--chip:var(--accent-2);--chip-ink:var(--accent-ink);--chip-on:#231400;">
+      <article class="pcard reveal" style="--chip:#ffffff;--chip-ink:#2b2b2b;--chip-on:#161616;--chip-border:#c4c1b8;">
         <button class="pcard-face" type="button" aria-haspopup="dialog">
-          <div class="pc-bar">
-            <span class="pc-no">PROJECT 04</span>
-            <span class="pc-hex">PANTONE · 1345 C</span>
-            <span class="pc-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-          </div>
-          <div class="pc-face-body">
-            <div class="pc-badges"><span class="pc-flag">First Team</span></div>
-            <h3>자동차 데이터 통합</h3>
-            <span class="pc-sub">등록·폐차 현황 &amp; 보험 FAQ 대시보드</span>
-            <div class="pc-tags"><span>Streamlit</span><span>MySQL</span><span>UI</span><span>Git Flow</span></div>
-            <div class="pc-foot">
-              <span class="pc-when">2025.12 · Frontend · UI</span>
-              <span class="pc-cta">자세히 보기 <span class="arr">→</span></span>
-            </div>
-          </div>
+          <span class="pc-no">1st</span>
+          <span class="pc-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+          <h3>De-registration</h3>
         </button>
         <template class="pcard-detail">
           <div class="modal-hd">
-            <div class="m-no">PROJECT 04 · PANTONE 1345 C</div>
-            <div class="m-badges"><span class="m-flag">First Team</span></div>
-            <h3>자동차 데이터 통합 시스템</h3>
+            <div class="m-title-row"><h3>자동차 데이터 통합 시스템</h3><span class="m-plat">Web</span></div>
             <div class="m-sub">등록·폐차 현황 &amp; 보험 FAQ 대시보드</div>
           </div>
           <div class="modal-body">
+            <p class="m-desc">공공 자동차 등록·폐차 통계와 보험 FAQ를 통합해 연도·지역·차종별 현황 비교와 검색이 가능한 Streamlit 대시보드. 테이블·지도 시각화·버터플라이 비교 그래프·FAQ 아코디언 등 UI 인터랙션과 디자인 시스템·화면 흐름을 담당했고, 첫 팀 프로젝트로 Git Flow 브랜치 전략을 적용·학습했습니다.</p>
             <div class="m-facts">
               <div class="m-fact"><div class="fk">Period</div><div class="fv">2025.12</div></div>
               <div class="m-fact"><div class="fk">Team</div><div class="fv">4인</div></div>
               <div class="m-fact"><div class="fk">Role</div><div class="fv">Frontend · UI</div></div>
             </div>
-            <p class="m-desc">공공 자동차 등록·폐차 통계와 보험 FAQ를 통합해 연도·지역·차종별 현황 비교와 검색이 가능한 Streamlit 대시보드. 테이블·지도 시각화·버터플라이 비교 그래프·FAQ 아코디언 등 UI 인터랙션과 디자인 시스템·화면 흐름을 담당했고, 첫 팀 프로젝트로 Git Flow 브랜치 전략을 적용·학습했습니다.</p>
             <h5 class="m-h">Tech Stack</h5>
             <div class="chips">
               <span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">MySQL</span><span class="chip">DBeaver</span><span class="chip">Git·GitHub</span>
@@ -339,6 +296,15 @@
         </template>
       </article>
 
+    </div>
+      <div class="projects-aside">
+        <div class="projects-intro">
+          <div class="projects-sign" aria-hidden="true">Team<br>Project</div>
+          <p class="projects-tagline">SK네트웍스 Family AI 캠프에서 5회의 팀프로젝트를 참여하여<br>데이터 분석·AI부터 LLM 기반 웹·모바일 서비스까지, 매 프로젝트마다 AI기술과 프론트엔드를 한 단계씩 키웠습니다.</p>
+          <div class="click-hint" aria-hidden="true">← Click</div>
+        </div>
+        <div class="projects-detail" hidden></div>
+      </div>
     </div>
   </div>
 </section>
