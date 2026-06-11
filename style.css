@@ -2,9 +2,6 @@
    디자인 시스템: :root(라이트) / [data-theme="dark"](다크) 토큰으로 관리
    컨셉: 따뜻한 옐로우 grid 배경 위에 떠 있는 아이보리 패널 + 팬톤 컬러칩 UI */
 
-/* ============================================================
-   TOKENS
-   ============================================================ */
 :root{
   /* — surfaces / neutrals — */
   --paper:#fffdf6;        /* 아이보리 패널 (메인 표면) */
@@ -375,10 +372,96 @@ main > section.sec-cream > .wrap{background:var(--cream);}
 .m-logo-row{display:flex;align-items:flex-end;gap:10px;margin-top:6px;flex-wrap:wrap;}
 .m-logo{height:84px;width:auto;max-width:100%;display:block;}
 .m-title-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+/* data-shot 버튼은 클릭 가능 */
+button.m-plat{cursor:pointer;transition:background .2s,border-color .2s,color .2s;}
+button.m-plat:hover{background:var(--ink);border-color:var(--ink);color:var(--paper);}
 .m-plat{
   font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
   color:var(--ink-soft);background:var(--cream);border:1px solid var(--line);
   padding:4px 10px;border-radius:var(--r-pill);
+}
+
+/* ============================================================
+   SCREENSHOT SHOWCASE — 브라우저 창 슬라이드쇼 모달
+   ============================================================ */
+.shot-modal{position:fixed;inset:0;z-index:140;display:flex;align-items:center;justify-content:center;padding:max(24px,4vh) 20px;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s;}
+.shot-modal.open{opacity:1;visibility:visible;}
+.shot-scrim{position:fixed;inset:0;background:rgba(30,20,4,.55);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);}
+.shot-wrap{position:relative;z-index:2;width:min(960px,100%);transform:scale(.97);transition:transform .3s cubic-bezier(.2,.8,.25,1);}
+.shot-modal.open .shot-wrap{transform:none;}
+.shot-x{position:absolute;top:-46px;right:0;width:38px;height:38px;border-radius:var(--r-pill);border:none;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .2s;z-index:3;}
+.shot-x:hover{background:rgba(255,255,255,.32);}
+.shot-x svg{width:18px;height:18px;}
+
+/* 공통 */
+.shot-slide{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .55s ease;}
+.shot-slide.active{opacity:1;}
+.shot-progress-fill{height:100%;width:0;background:#8fc94a;}   /* On_You 연두 포인트 */
+.shot-dots{display:flex;gap:8px;flex-wrap:wrap;}
+.shot-dot{width:8px;height:8px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,.45);transition:background .2s,width .2s;}
+.shot-dot.active{width:22px;border-radius:4px;background:#8fc94a;}
+.shot-caption{font-size:13.5px;color:rgba(255,255,255,.92);font-weight:600;}
+
+/* 좌우 화살표 — 항상 프레임 바깥, iOS 글래스 */
+.shot-stage-row{display:flex;align-items:center;justify-content:center;gap:14px;}
+.shot-nav{
+  flex:0 0 auto;width:46px;height:46px;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:22px;line-height:1;color:#fff;
+  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(16px) saturate(1.7);-webkit-backdrop-filter:blur(16px) saturate(1.7);
+  box-shadow:0 8px 22px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.25);
+  transition:background .2s,transform .15s;
+}
+.shot-nav:hover{background:rgba(255,255,255,.26);transform:scale(1.07);}
+.shot-nav:active{transform:scale(.96);}
+
+/* ── 브라우저 모드 ── */
+.shot-body.browser .shot-frame{flex:1;min-width:0;position:relative;border-radius:14px;overflow:hidden;background:#ececef;border:1px solid #dcdce0;box-shadow:0 30px 70px -20px rgba(0,0,0,.5);}
+.shot-bar{display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;background:#ececef;border-bottom:1px solid #dcdce0;}
+.shot-lights{display:flex;gap:8px;}
+.shot-lights span{width:12px;height:12px;border-radius:50%;}
+.shot-lights span:nth-child(1){background:#ff5f57;}
+.shot-lights span:nth-child(2){background:#febc2e;}
+.shot-lights span:nth-child(3){background:#28c840;}
+.shot-url{flex:1;height:26px;display:flex;align-items:center;gap:7px;padding:0 12px;background:#fff;border:1px solid #dcdce0;border-radius:7px;font-family:var(--mono);font-size:12.5px;color:#8a8a93;overflow:hidden;white-space:nowrap;}
+.shot-url svg{flex:0 0 auto;}
+.shot-stage{position:relative;aspect-ratio:16/7.5;background:#000;overflow:hidden;}   /* 위 주소창은 예전만큼, 아래만 살짝 크롭 */
+.shot-stage .shot-slide{object-fit:cover;object-position:center 67%;background:#000;}  /* 위 ~120px(예전), 아래 ~60px */
+.shot-stage .shot-progress{position:absolute;top:0;left:0;right:0;height:3px;z-index:5;}
+.shot-body.browser .shot-footer{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:16px;}
+
+/* ── Galaxy 폰 모드 ── */
+.shot-phone{position:relative;flex:0 0 auto;width:min(300px,74vw);padding:10px;border-radius:44px;background:linear-gradient(145deg,#f2f2f5 0%,#cfcfd6 45%,#a9a9b1 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.7),inset 0 0 0 1px rgba(255,255,255,.4),0 28px 56px -22px rgba(0,0,0,.5);}
+.shot-key{position:absolute;right:-3px;width:3px;border-radius:2px;background:linear-gradient(#cdcdd4,#9a9aa2);}
+.shot-key.vol{top:20%;height:11%;}
+.shot-key.pwr{top:34%;height:7%;}
+.shot-screen{position:relative;aspect-ratio:1080/2340;border-radius:34px;overflow:hidden;background:#000;touch-action:pan-y;}
+.shot-screen .shot-slide{object-fit:cover;}
+.shot-camera{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:9px;height:9px;border-radius:50%;z-index:7;background:radial-gradient(circle at 35% 35%,#2b2b35 0%,#060608 62%);box-shadow:0 0 0 1.5px rgba(0,0,0,.45);}
+.shot-body.phone .shot-progress{width:min(300px,74vw);height:3px;border-radius:3px;background:rgba(255,255,255,.25);overflow:hidden;margin:22px auto 0;}
+.shot-footer.center{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:16px;}
+
+/* 탭 (Browser / Laptop) — 점 위, 글래스 */
+.shot-tabs{display:flex;gap:8px;}
+.shot-tab{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:6px 15px;border-radius:var(--r-pill);cursor:pointer;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(12px) saturate(1.5);-webkit-backdrop-filter:blur(12px) saturate(1.5);transition:background .2s,color .2s,border-color .2s;}
+.shot-tab:hover{background:rgba(255,255,255,.22);}
+.shot-tab.active{background:#fff;color:#18181b;border-color:#fff;}
+
+/* ── Laptop (PNG) — 브라우저 창과 동일한 점3개+주소창, 크롭 없이 contain ── */
+.shot-body.laptop .shot-laptop{flex:1;min-width:0;border-radius:14px;overflow:hidden;background:#ececef;border:1px solid #dcdce0;box-shadow:0 30px 70px -20px rgba(0,0,0,.5);}
+.shot-lap-screen{position:relative;aspect-ratio:714/396;background:#fff;overflow:hidden;}  /* PNG 비율과 동일 → 흰 여백 없음 */
+.shot-lap-screen .shot-progress{position:absolute;top:0;left:0;right:0;height:3px;z-index:5;}
+.shot-body.laptop .shot-slide{object-fit:contain;background:#fff;}   /* 크롭 없이 전체 표시 */
+
+/* 모드별 전체 크기 — Browser 크게, Laptop 작게 */
+.shot-modal:has(.shot-body.browser) .shot-wrap{width:min(1240px,96vw);}
+.shot-modal:has(.shot-body.laptop) .shot-wrap{width:min(760px,96vw);}
+
+@media (prefers-reduced-motion: reduce){.shot-slide{transition:none;}}
+@media(max-width:680px){
+  .shot-body.browser .shot-footer{flex-direction:column;align-items:center;gap:8px;}
+  .shot-nav{display:none;}   /* 좁은 화면: 스와이프로 */
+  .shot-x{top:-42px;}
 }
 .pd-back{
   display:inline-flex;align-items:center;gap:6px;margin:0 0 14px;

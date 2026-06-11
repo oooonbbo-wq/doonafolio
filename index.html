@@ -20,7 +20,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Lobster&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20">
 </head>
 <body>
 
@@ -184,8 +184,8 @@
           <div class="modal-hd">
             <div class="m-logo-row">
               <img class="m-logo" src="assets/On_You_logo.png" alt="On_You">
-              <span class="m-plat">Web</span>
-              <span class="m-plat">Mobile</span>
+              <button type="button" class="m-plat" data-shot="onyou-web">Web</button>
+              <button type="button" class="m-plat" data-shot="onyou-mobile">Mobile</button>
             </div>
             <div class="m-sub">AI 피부 분석 · 성분 OCR · 올리브영 제품 추천 챗봇</div>
           </div>
@@ -520,6 +520,17 @@
   </div>
 </div>
 
-<script src="script.js" defer></script>
+<!-- SCREENSHOT SHOWCASE (브라우저/폰 슬라이드쇼) -->
+<div class="shot-modal" id="shotModal" aria-hidden="true">
+  <div class="shot-scrim" data-shot-close></div>
+  <div class="shot-wrap" role="dialog" aria-modal="true" aria-label="화면 미리보기">
+    <button class="shot-x" type="button" data-shot-close aria-label="닫기">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="shot-body" id="shotBody"></div>
+  </div>
+</div>
+
+<script src="script.js?v=20" defer></script>
 </body>
 </html>
