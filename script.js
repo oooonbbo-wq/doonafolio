@@ -187,21 +187,21 @@
   };
   GAL['onyou-mobile'].views[0].shots=[
     {src:M+'On_You_mobile_로그인과 회원가입_1.gif',label:'로그인과 회원가입'},
-    {src:M+'On_You_mobile_메인_홈_3.gif',label:'메인 홈'},
-    {src:M+'On_You_mobile_빠른분석_정면_실시간_사진촬영_4.gif',label:'빠른분석 정면 실시간 사진촬영'},
-    {src:M+'On_You_mobile_성분분석_후면_실시간_사진촬영_5.gif',label:'성분분석 후면 실시간 사진촬영'},
-    {src:M+'On_You_mobile_챗봇_제품추천과_위시리스트_등록_6.gif',label:'챗봇 제품추천과 위시리스트 등록'},
-    {src:M+'On_You_mobile_나의_위시리스트_홈화면_확인_및_삭제_7.gif',label:'나의 위시리스트 홈화면 확인 및 삭제'},
-    {src:M+'On_You_mobile_챗봇_제품추천_클릭_시_구매링크_연결_8.gif',label:'챗봇 제품추천 클릭 시 구매링크 연결'},
-    {src:M+'On_You_mobile_챗봇_빠른분석_9.gif',label:'챗봇 빠른분석'},
-    {src:M+'On_You_mobile_챗봇_정밀분석_10.gif',label:'챗봇 정밀분석'},
-    {src:M+'On_You_mobile_챗봇_성분분석_11.gif',label:'챗봇 성분분석'},
-    {src:M+'On_You_mobile_챗봇_퍼스널컬러분석_12.gif',label:'챗봇 퍼스널컬러분석'},
-    {src:M+'On_You_mobile_챗봇_채팅내역_삭제_13.gif',label:'챗봇 채팅내역 삭제'},
-    {src:M+'On_You_mobile_챗봇_채팅내역_기록_14.gif',label:'챗봇 채팅내역 기록'},
-    {src:M+'On_You_mobile_마이페이지_내_정보_수정_15.gif',label:'마이페이지 내 정보 수정'},
-    {src:M+'On_You_mobile_마이페이지_소셜연동,FAQ,고객문의,회원탈퇴_16.gif',label:'마이페이지 소셜연동,FAQ,고객문의,회원탈퇴'},
-    {src:M+'On_You_mobile_피부_MBTI_테스트_17.gif',label:'피부 MBTI 테스트'}
+    {src:M+'On_You_mobile_메인_홈_2.gif',label:'메인 홈'},
+    {src:M+'On_You_mobile_빠른분석_정면_실시간_사진촬영_3.gif',label:'빠른분석 정면 실시간 사진촬영'},
+    {src:M+'On_You_mobile_성분분석_후면_실시간_사진촬영_4.gif',label:'성분분석 후면 실시간 사진촬영'},
+    {src:M+'On_You_mobile_챗봇_제품추천과_위시리스트_등록_5.gif',label:'챗봇 제품추천과 위시리스트 등록'},
+    {src:M+'On_You_mobile_나의_위시리스트_홈화면_확인_및_삭제_6.gif',label:'나의 위시리스트 홈화면 확인 및 삭제'},
+    {src:M+'On_You_mobile_챗봇_제품추천_클릭_시_구매링크_연결_7.gif',label:'챗봇 제품추천 클릭 시 구매링크 연결'},
+    {src:M+'On_You_mobile_챗봇_빠른분석_8.gif',label:'챗봇 빠른분석'},
+    {src:M+'On_You_mobile_챗봇_정밀분석_9.gif',label:'챗봇 정밀분석'},
+    {src:M+'On_You_mobile_챗봇_성분분석_10.gif',label:'챗봇 성분분석'},
+    {src:M+'On_You_mobile_챗봇_퍼스널컬러분석_11.gif',label:'챗봇 퍼스널컬러분석'},
+    {src:M+'On_You_mobile_챗봇_채팅내역_삭제_12.gif',label:'챗봇 채팅내역 삭제'},
+    {src:M+'On_You_mobile_챗봇_채팅내역_기록_13.gif',label:'챗봇 채팅내역 기록'},
+    {src:M+'On_You_mobile_마이페이지_내_정보_수정_14.gif',label:'마이페이지 내 정보 수정'},
+    {src:M+'On_You_mobile_마이페이지_소셜연동,FAQ,고객문의,회원탈퇴_15.gif',label:'마이페이지 소셜연동,FAQ,고객문의,회원탈퇴'},
+    {src:M+'On_You_mobile_피부_MBTI_테스트_16.gif',label:'피부 MBTI 테스트'}
   ];
 
   var modal=document.getElementById('shotModal');
