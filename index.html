@@ -20,7 +20,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Lobster&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 
-<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
 </head>
 <body>
 
@@ -148,10 +148,10 @@
             </div>
             <h5 class="m-h">Key Work</h5>
             <ul class="pc-points">
-              <li><b>멀티턴 대화와 단계적 비동기 생성을 단일 결과 화면으로 오케스트레이션</b><br>정보가 충분해질 때까지 되묻는 대화 → 텍스트 일기 생성 → 확인·수정 → 이미지 생성까지, 시점이 다른 각 단계를 단계별 로딩으로 끊김 없이 결과 카드에 연결하고 React Context·useState로 대화·생성 상태를 관리 <span style="font-size:11px;color:var(--ink-soft);white-space:nowrap;">React 18 · TypeScript · Vite · Tailwind · Framer Motion</span></li>
-              <li><b>챗봇과의 대화를 통해 강아지 시점의 그림일기를 자동 생성하는 파이프라인 설계·구현</b><br>대화 내용과 반려견 프로필(이름·견종·성향)을 바탕으로 견종 특성과 유사 일기를 RAG로 검색해, 맥락에 맞는 일기 글과 그림을 6단계(DiaryChain)로 생성 <span style="font-size:11px;color:var(--ink-soft);white-space:nowrap;">ChromaDB · GPT-4.1-mini · gpt-image-1</span></li>
-              <li><b>생성 이미지 품질을 자동 채점·필터링하는 CV+LLM 하이브리드 평가 시스템 구축</b><br>사람 평가 정답 139장을 기준으로 CV 객관 지표(6개) + LLM 주관 판단(12개) 18개 항목을 결합 — 정확 일치율 37.4%(단독 평가기 대비 최고)를 LLM 단독 대비 30% 낮은 비용으로 달성 <span style="font-size:11px;color:var(--ink-soft);white-space:nowrap;">CLIP · YOLOv8 · GPT-4o Vision · OpenCV</span></li>
-              <li>Flutter 앱 — 카카오맵 WebView 임베드, 즐겨찾기 Optimistic UI, 8단계 다이어리 미니플로우</li>
+              <li><b>멀티턴 대화와 단계적 비동기 생성을 단일 결과 화면으로 오케스트레이션</b><br>정보가 충분해질 때까지 되묻는 대화 → 텍스트 일기 생성 → 확인·수정 → 이미지 생성까지, 시점이 다른 각 단계를 단계별 로딩으로 끊김 없이 결과 카드에 연결하고 React Context·useState로 대화·생성 상태를 관리 <span class="li-tech">React 18 · TypeScript · Vite · Tailwind · Framer Motion</span></li>
+              <li><b>챗봇과의 대화를 통해 강아지 시점의 그림일기를 자동 생성하는 파이프라인 설계·구현</b><br>대화 내용과 반려견 프로필(이름·견종·성향)을 바탕으로 견종 특성과 유사 일기를 RAG로 검색해, 맥락에 맞는 일기 글과 그림을 6단계(DiaryChain)로 생성 <span class="li-tech">ChromaDB · GPT-4.1-mini · gpt-image-1</span></li>
+              <li><b>생성 이미지 품질을 자동 채점·필터링하는 CV+LLM 하이브리드 평가 시스템 구축</b><br>사람 평가 정답 139장을 기준으로 CV 객관 지표(6개) + LLM 주관 판단(12개) 18개 항목을 결합하여 정확 일치율 37.4%(단독 평가기 대비 최고)를 LLM 단독 대비 30% 낮은 비용으로 달성 <span class="li-tech">CLIP · YOLOv8 · GPT-4o Vision · OpenCV</span></li>
+              <li><b>React 웹 전 기능을 Android 네이티브 앱으로 포팅, 모바일에 맞춰 화면 설계</b><br>카카오맵 InAppWebView 임베드·길찾기 딥링크, 즐겨찾기 Optimistic UI, 그림일기 미니플로우 구현, 웹의 lucide 아이콘·손글씨 폰트(Gaegu)를 앱에 그대로 매핑해 디자인 정합성 확보 <span class="li-tech">Flutter · Dart · InAppWebView</span></li>
             </ul>
             <h5 class="m-h">Impact</h5>
             <div class="stats">
