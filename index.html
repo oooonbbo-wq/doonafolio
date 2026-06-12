@@ -109,7 +109,7 @@
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="sec-cream">
+<section id="projects">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="top"><span class="num">01</span><span class="label">Project</span></div>
@@ -129,13 +129,18 @@
           <div class="modal-hd">
             <div class="m-logo-row">
               <img class="m-logo" src="assets/withDOG_가로형_logo.png" alt="withDOG">
+            </div>
+            <div class="m-sub">반려견 성향 기반 장소 추천 &amp; AI 그림일기 챗봇 서비스</div>
+            <div class="m-plat-row">
               <span class="m-plat">Web</span>
               <span class="m-plat">Mobile</span>
             </div>
-            <div class="m-sub">반려견 성향 기반 장소 추천 &amp; AI 그림일기 챗봇 서비스</div>
           </div>
           <div class="modal-body">
-            <p class="m-desc">반려견·보호자 성향을 기반으로 동반 가능한 장소를 추천하고, 방문 경험을 강아지 시점의 AI 그림일기로 기록하는 챗봇 웹·앱 서비스. APM을 맡아 기획·화면 설계부터 React 웹, Flutter 앱, AI 그림일기 생성·평가 파이프라인까지 담당했습니다.</p>
+            <img src="assets/withDOG_info.png" alt="withDOG 서비스 흐름" style="width:100%;margin:0 0 1rem;">
+            <p class="m-desc">withDOG는 반려견·보호자 성향을 기반으로 동반 가능한 장소를 추천하고, 방문 경험을<br>강아지 시점의 AI 그림일기로 기록하는 챗봇 웹·앱 서비스입니다.</p>
+            <p class="m-desc">단순 추천이 아닌 성향 기반 개인화와 기록까지의 흐름을 AI 서비스로 차별화하기 위하여<br>장소탐색 → 장소추천 → 방문 경험 → 그림일기 기록을 하나의 흐름으로 연결합니다.</p>
+            <p class="m-desc">withDOG 프로젝트에서 APM을 맡아 서비스 기획 및 화면 설계부터<br>React 웹, Flutter 앱, AI 그림일기 생성·평가 파이프라인 개발을 담당했습니다.</p>
             <div class="m-facts">
               <div class="m-fact"><div class="fk">Period</div><div class="fv">2026.03 – 05</div></div>
               <div class="m-fact"><div class="fk">Team</div><div class="fv">3인</div></div>
@@ -143,9 +148,9 @@
             </div>
             <h5 class="m-h">Key Work</h5>
             <ul class="pc-points">
-              <li>Vite·React·TypeScript SPA 구성, react-router-dom v7 라우팅 — <b>LLM 텍스트·이미지 응답을 비동기 로딩 → 결과 카드 UI 흐름</b>으로 연결 (React Context·useState 상태 관리)</li>
-              <li><b>DiaryChain 6단계 자동 생성 파이프라인</b> 설계·구현 + RAG 검색(견종 357종 ChromaDB, 유사 일기 n=3)</li>
-              <li><b>LLM Judge(GPT-4o) + CV 하이브리드 이미지 자동 평가기</b> 구축 (자체 GT 139장)</li>
+              <li><b>멀티턴 대화와 단계적 비동기 생성을 단일 결과 화면으로 오케스트레이션</b><br>정보가 충분해질 때까지 되묻는 대화 → 텍스트 일기 생성 → 확인·수정 → 이미지 생성까지, 시점이 다른 각 단계를 단계별 로딩으로 끊김 없이 결과 카드에 연결하고 React Context·useState로 대화·생성 상태를 관리 <span style="font-size:11px;color:var(--ink-soft);white-space:nowrap;">React 18 · TypeScript · Vite · Tailwind · Framer Motion</span></li>
+              <li><b>챗봇과의 대화를 통해 강아지 시점의 그림일기를 자동 생성하는 파이프라인 설계·구현</b><br>대화 내용과 반려견 프로필(이름·견종·성향)을 바탕으로 견종 특성과 유사 일기를 RAG로 검색해, 맥락에 맞는 일기 글과 그림을 6단계(DiaryChain)로 생성 <span style="font-size:11px;color:var(--ink-soft);white-space:nowrap;">ChromaDB · GPT-4.1-mini · gpt-image-1</span></li>
+              <li><b>생성 이미지 품질을 자동 채점·필터링하는 CV+LLM 하이브리드 평가 시스템 구축</b><br>사람 평가 정답 139장을 기준으로 CV 객관 지표(6개) + LLM 주관 판단(12개) 18개 항목을 결합 — 정확 일치율 37.4%(단독 평가기 대비 최고)를 LLM 단독 대비 30% 낮은 비용으로 달성 <span style="font-size:11px;color:var(--ink-soft);white-space:nowrap;">CLIP · YOLOv8 · GPT-4o Vision · OpenCV</span></li>
               <li>Flutter 앱 — 카카오맵 WebView 임베드, 즐겨찾기 Optimistic UI, 8단계 다이어리 미니플로우</li>
             </ul>
             <h5 class="m-h">Impact</h5>
@@ -184,13 +189,17 @@
           <div class="modal-hd">
             <div class="m-logo-row">
               <img class="m-logo" src="assets/On_You_logo.png" alt="On_You">
+            </div>
+            <div class="m-sub">AI 피부 분석 · 성분 OCR · 올리브영 제품 추천 챗봇</div>
+            <div class="m-plat-row">
               <button type="button" class="m-plat" data-shot="onyou-web">Web</button>
               <button type="button" class="m-plat" data-shot="onyou-mobile">Mobile</button>
             </div>
-            <div class="m-sub">AI 피부 분석 · 성분 OCR · 올리브영 제품 추천 챗봇</div>
           </div>
           <div class="modal-body">
-            <p class="m-desc">딥러닝 피부 분석, VLM 기반 전성분 OCR, 올리브영 실상품 검증 추천을 결합한 멀티모달 스킨케어 챗봇. AWS 인프라 구축·운영과 Flutter 모바일 앱 UI/카메라 비전 연동, 브랜드 아이덴티티를 담당했습니다.</p>
+            <p class="m-desc">On_You는 딥러닝 피부 분석과 전성분 OCR로 사용자의 피부와 화장품 성분을 진단하고,<br>그 결과에 맞는 올리브영 실제 상품을 추천하는 AI 스킨케어 챗봇 웹·앱 서비스입니다.</p>
+            <p class="m-desc">단순 인기 제품 추천이 아닌 객관적인 피부·성분 분석 기반의 차별화된 서비스로 구축하기 위하여<br>피부 분석, 전성분 분석, 제품 추천, 퍼스널컬러·피부 MBTI를 하나의 챗봇 서비스로 제공합니다.</p>
+            <p class="m-desc">On_You 프로젝트에서 브랜드 아이덴티티 기획과 디자인을 맡아<br>로고·인포그래픽·피부 MBTI/퍼스널컬러 콘텐츠 설계부터 모바일 앱 UI/UX 디자인·API 연동,<br>Flutter 카메라 비전 구현, AWS 인프라(EC2·S3·MariaDB) 구축·운영까지 담당했습니다.</p>
             <div class="m-facts">
               <div class="m-fact"><div class="fk">Period</div><div class="fv">2026.02 – 03</div></div>
               <div class="m-fact"><div class="fk">Team</div><div class="fv">5인</div></div>
