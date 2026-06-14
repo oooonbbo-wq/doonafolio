@@ -429,6 +429,7 @@ button.m-plat:hover{background:var(--ink);border-color:var(--ink);color:var(--pa
 .shot-url svg{flex:0 0 auto;}
 .shot-stage{position:relative;aspect-ratio:16/7.5;background:#000;overflow:hidden;}   /* 위 주소창은 예전만큼, 아래만 살짝 크롭 */
 .shot-stage .shot-slide{object-fit:cover;object-position:center 67%;background:#000;}  /* 위 ~120px(예전), 아래 ~60px */
+.shot-body[data-gal="steam-web"] .shot-stage .shot-slide{object-position:center 75%;}
 .shot-stage .shot-progress{position:absolute;top:0;left:0;right:0;height:3px;z-index:5;}
 .shot-body.browser .shot-footer{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:16px;}
 
@@ -456,8 +457,8 @@ button.m-plat:hover{background:var(--ink);border-color:var(--ink);color:var(--pa
 .shot-body.laptop .shot-slide{object-fit:contain;background:#fff;}   /* 크롭 없이 전체 표시 */
 
 /* 모드별 전체 크기 — Browser 크게, Laptop 작게 */
-.shot-modal:has(.shot-body.browser) .shot-wrap{width:min(1240px,96vw);}
-.shot-modal:has(.shot-body.laptop) .shot-wrap{width:min(760px,96vw);}
+.shot-modal:has(.shot-body.browser) .shot-wrap{width:min(1600px,96vw);}
+.shot-modal:has(.shot-body.laptop) .shot-wrap{width:min(900px,96vw);}
 
 @media (prefers-reduced-motion: reduce){.shot-slide{transition:none;}}
 @media(max-width:680px){

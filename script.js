@@ -156,7 +156,16 @@
 (function(){
   var W='assets/On_You_assets/On_You_web/';
   var M='assets/On_You_assets/On_You_mobile/';
+  var S='assets/Steam_web/';
   var GAL={
+    'steam-web':{ views:[
+      { tab:'Browser', type:'browser', url:'Steam Churn', dur:5000, shots:[
+        {src:S+'steam_web_사이트접속_1.gif', label:'사이트 접속'},
+        {src:S+'steam_web_실시간_리뷰_예측_2.gif', label:'실시간 리뷰 예측'},
+        {src:S+'steam_web_게임별_유저별_리뷰_단건_예측_3.gif', label:'게임별 유저별 리뷰 단건 예측'},
+        {src:S+'steam_web_인사이트_결과를_엑셀파일로_다운로드_4.gif', label:'인사이트 결과를 엑셀파일로 다운로드'}
+      ]}
+    ]},
     'onyou-web':{ views:[
       { tab:'Browser', type:'browser', url:'On_You', dur:5000, shots:[
         {src:W+'On_You_web_비로그인_채팅_1.gif', label:'비로그인 채팅'},
@@ -367,6 +376,7 @@
     curViews=gal.views; viewIdx=0;
     modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
     document.body.classList.add('modal-lock');
+    body.setAttribute('data-gal', key);
     open=true;
     openView(0);
   }
