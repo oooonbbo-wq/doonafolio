@@ -287,21 +287,28 @@
             </div>
           </div>
           <div class="modal-body">
-            <p class="m-desc">Steam 상위 50위 게임의 리뷰·유저 행동 데이터(약 100만 건)로 장르 특성을 반영한 이탈(Churn) 예측 기준을 설계. 장르별 이탈 정의·라벨링 정책 수립, 전처리, 모델 비교 실험, 데이터 불균형 대응, 해석 가능성을 고려한 모델 선정과 README 작성을 담당했습니다.</p>
+            <p class="m-desc">Steam 상위 50위 게임의 리뷰·유저 행동 데이터(약 100만 건)를 분석해<br>장르별 이탈(Churn) 예측 모델을 구축하고, 게임 운영 전략 수립을 지원하는 AI 분석 시스템으로<br>분석 방향 설정부터 이탈 정의 프레임워크 설계, 피처 엔지니어링, 모델 비교 실험과 문서화를 담당했습니다.</p>
             <div class="m-facts">
               <div class="m-fact"><div class="fk">Period</div><div class="fv">2026.01</div></div>
               <div class="m-fact"><div class="fk">Team</div><div class="fv">5인</div></div>
               <div class="m-fact"><div class="fk">Role</div><div class="fv">Analytics Lead · ML</div></div>
             </div>
+            <h5 class="m-h">Key Work</h5>
+            <ul class="pc-points">
+              <li><b>장르별 이탈(Churn) 기준 설계</b><br>게임 유형(온라인·비디오·스토리)별 리뷰 후 플레이 공백 기간 기준으로 이탈 정의 및 라벨링 정책 수립 (온라인 7일 · 비디오 10일 · 스토리 5일), 클래스 불균형(29%) 분포 확인 및 대응 방향 결정 <span class="li-tech">pandas · Python</span></li>
+              <li><b>다국어 감성 분석 피처 엔지니어링</b><br>30개 이상 언어 리뷰 텍스트에 렉시콘 기반 감성 분석을 적용해 good_review 이진 피처 생성, "긍정 리뷰 + 짧은 플레이타임" 패턴으로 이탈자 54% 식별 <span class="li-tech">scikit-learn · pandas</span></li>
+              <li><b>LightGBM 기반 이탈 예측 모델 개발</b><br>44개 피처(원본 25 + 파생 19)로 ML 모델 프로토타이핑, 데이터 불균형 대응(SMOTE) 실험 및 모델 비교 후 해석 가능성 고려한 최종 모델 선정 <span class="li-tech">LightGBM · XGBoost · scikit-learn</span></li>
+              <li><b>프로젝트 문서화 및 README 작성</b> — 분석 목적·방법론·실험 결과 정리, 장르별 이탈 정의·라벨링 기준 명세</li>
+            </ul>
             <h5 class="m-h">Impact</h5>
             <div class="stats">
-              <div class="stat"><div class="n">0.77</div><div class="t">Precision</div></div>
-              <div class="stat"><div class="n">0.87</div><div class="t">Recall</div></div>
               <div class="stat"><div class="n">0.82</div><div class="t">F1 Score</div></div>
+              <div class="stat"><div class="n">0.87</div><div class="t">Recall</div></div>
+              <div class="stat"><div class="n">0.78</div><div class="t">ROC-AUC</div></div>
             </div>
             <h5 class="m-h">Tech Stack</h5>
             <div class="chips">
-              <span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">LightGBM</span><span class="chip">XGBoost</span><span class="chip">pandas</span><span class="chip">Streamlit</span><span class="chip">AWS EC2</span>
+              <span class="chip">Python</span><span class="chip">LightGBM</span><span class="chip">XGBoost</span><span class="chip">scikit-learn</span><span class="chip">pandas</span><span class="chip">NumPy</span><span class="chip">Streamlit</span><span class="chip">AWS EC2</span>
             </div>
             <div class="plinks">
               <a class="plink" href="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN23-2nd-1Team" target="_blank" rel="noopener">
@@ -322,19 +329,29 @@
         </button>
         <template class="pcard-detail">
           <div class="modal-hd">
-            <div class="m-title-row"><h3>자동차 데이터 통합 시스템</h3><span class="m-plat">Web</span></div>
+            <div class="m-title-row"><h3>자동차 데이터 통합 시스템</h3></div>
             <div class="m-sub">등록·폐차 현황 &amp; 보험 FAQ 대시보드</div>
+            <div class="m-plat-row">
+              <button type="button" class="m-plat" data-shot="dereg-web">Web</button>
+            </div>
           </div>
           <div class="modal-body">
-            <p class="m-desc">공공 자동차 등록·폐차 통계와 보험 FAQ를 통합해 연도·지역·차종별 현황 비교와 검색이 가능한 Streamlit 대시보드. 테이블·지도 시각화·버터플라이 비교 그래프·FAQ 아코디언 등 UI 인터랙션과 디자인 시스템·화면 흐름을 담당했고, 첫 팀 프로젝트로 Git Flow 브랜치 전략을 적용·학습했습니다.</p>
+            <p class="m-desc">공공 자동차 등록·폐차 통계와 보험 FAQ를 통합해 연도·지역·차종별 현황 비교와 검색이 가능한 Streamlit 대시보드입니다.</p>
+            <p class="m-desc">UI 화면 흐름 설계부터 Streamlit 인터페이스 구현, 탭 단위 모듈화, README 문서화를 담당했으며,<br>첫 팀 프로젝트로 Git Flow 브랜치 전략을 적용·학습했습니다.</p>
             <div class="m-facts">
               <div class="m-fact"><div class="fk">Period</div><div class="fv">2025.12</div></div>
               <div class="m-fact"><div class="fk">Team</div><div class="fv">4인</div></div>
               <div class="m-fact"><div class="fk">Role</div><div class="fv">Frontend · UI</div></div>
             </div>
+            <h5 class="m-h">Key Work</h5>
+            <ul class="pc-points">
+              <li><b>Streamlit 대시보드 UI 전체 구현</b><br>등록·폐차·비교·FAQ 4개 탭의 화면 흐름 설계 및 Streamlit 인터페이스 구현 (테이블·지도 시각화·버터플라이 비교 그래프·FAQ 아코디언 검색) <span class="li-tech">Streamlit · Python</span></li>
+              <li><b>탭 단위 파일 모듈화로 협업 구조 개선</b><br>모놀리식 구조를 탭별 독립 파일로 분리해 병렬 개발 가능한 구조로 전환, 머지 충돌 해소 <span class="li-tech">Git · GitHub</span></li>
+              <li><b>프로젝트 문서화 및 README 작성</b> — 기능 설명·사용법·화면 구성 정리, Git Flow 브랜치 전략 첫 적용</li>
+            </ul>
             <h5 class="m-h">Tech Stack</h5>
             <div class="chips">
-              <span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">MySQL</span><span class="chip">DBeaver</span><span class="chip">Git·GitHub</span>
+              <span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">pandas</span><span class="chip">MySQL</span><span class="chip">DBeaver</span><span class="chip">Git·GitHub</span>
             </div>
             <div class="plinks">
               <a class="plink" href="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN23-1ST-3TEAM" target="_blank" rel="noopener">

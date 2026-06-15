@@ -157,7 +157,16 @@
   var W='assets/On_You_assets/On_You_web/';
   var M='assets/On_You_assets/On_You_mobile/';
   var S='assets/Steam_web/';
+  var D='assets/De-registration_web/';
   var GAL={
+    'dereg-web':{ views:[
+      { tab:'Browser', type:'browser', url:'De-registration', dur:5000, shots:[
+        {src:D+'De-registration_자동차_등록_현황_연도_및_지역_선택_1.gif', label:'자동차 등록 현황'},
+        {src:D+'De-registration_자동차_폐차_현황_연도_및_지역_선택_2.gif', label:'자동차 폐차 현황'},
+        {src:D+'De-registration_자동차_등록_폐차_비교_현황_연도_및_지역_선택_시_그래프_출력_3.gif', label:'등록·폐차 비교 현황'},
+        {src:D+'워De-registration_자동차_보험_FAQ_유형_및_단계와_질문_키워드_검색__4.gif', label:'보험 FAQ 검색'}
+      ]}
+    ]},
     'steam-web':{ views:[
       { tab:'Browser', type:'browser', url:'Steam Churn', dur:5000, shots:[
         {src:S+'steam_web_사이트접속_1.gif', label:'사이트 접속'},
