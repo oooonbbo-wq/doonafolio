@@ -1,13 +1,9 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- 머리 -->
-  <circle cx="50" cy="45" r="28" fill="#FFD700"/>
-  
-  <!-- 눈 왼쪽 -->
-  <circle cx="42" cy="38" r="4" fill="#000"/>
-  
-  <!-- 눈 오른쪽 -->
-  <circle cx="58" cy="38" r="4" fill="#000"/>
-  
+  <!-- 머리 — 캔버스를 꽉 채움 (배경 박스 없음, 투명) -->
+  <circle cx="50" cy="50" r="49" fill="#FFD21E"/>
+  <!-- 눈 -->
+  <circle cx="35" cy="41" r="7.5" fill="#1A1A1A"/>
+  <circle cx="65" cy="41" r="7.5" fill="#1A1A1A"/>
   <!-- 부리 -->
-  <ellipse cx="50" cy="50" rx="10" ry="6" fill="#FFA500"/>
+  <ellipse cx="50" cy="66" rx="19" ry="12" fill="#FF9E21"/>
 </svg>
