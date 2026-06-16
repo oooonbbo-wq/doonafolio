@@ -12,14 +12,14 @@
 
 ## Contents
 
-- [0. About](#about)
-- [1. Why Vanilla JavaScript](#why-vanilla-javascript)
-- [2. Features](#features)
-- [3. Tech Stack](#tech-stack)
-- [4. Project Structure](#project-structure)
-- [5. Troubleshooting](#troubleshooting)
-- [6. Deployment](#deployment)
-- [7. Contact](#contact)
+- [0. About](#0-about)
+- [1. Why Vanilla JavaScript](#1-why-vanilla-javascript)
+- [2. Features](#2-features)
+- [3. Tech Stack](#3-tech-stack)
+- [4. Project Structure](#4-project-structure)
+- [5. Trouble Shooting](#5-trouble-shooting)
+- [6. Deployment](#6-deployment)
+- [7. Contact](#7-contact)
 
 ## 0. About
 
@@ -56,14 +56,21 @@
 
 ## 3. Tech Stack
 
-| 영역       | 내용                                                                                        |
-| ---------- | ------------------------------------------------------------------------------------------- |
-| Markup     | HTML5 (시멘틱 구조, `<template>`)                                                           |
-| Styling    | CSS3 — 커스텀 프로퍼티(디자인 토큰), Grid / Flexbox, `clamp()`, `:has()`, `backdrop-filter` |
-| Behavior   | Vanilla JavaScript — `IntersectionObserver`, `requestAnimationFrame`, 이벤트 위임           |
-| Media      | H.264 MP4(`<video>`) 디바이스 프레임 쇼케이스                                               |
-| Typography | Pretendard · Lobster · Bricolage Grotesque · Space Mono                                     |
-| Deployment | GitHub Pages + Cloudflare (DNS · 커스텀 도메인)                                             |
+### Frontend
+
+HTML5 · CSS3 · Vanilla JavaScript
+
+### Key Features
+
+Semantic markup · Design tokens · Responsive Grid · IntersectionObserver · Event delegation
+
+### Fonts
+
+Pretendard · Lobster · Bricolage Grotesque · Space Mono
+
+### Deployment
+
+GitHub Pages + Cloudflare (Custom domain)
 
 ## 4. Project Structure
 
@@ -81,7 +88,7 @@ doonafolio/
 └── CNAME           # Cloudflare 커스텀 도메인 설정
 ```
 
-## 5. Troubleshooting
+## 5. Trouble Shooting
 
 실제 개발 중 마주친 문제와 해결 과정입니다. 각 사례는 **문제·원인 → 해결 →
 결과** 순으로 정리했습니다.
