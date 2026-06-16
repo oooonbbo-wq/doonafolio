@@ -207,7 +207,7 @@ main > section.sec-cream > .wrap{background:var(--cream);}
 .hero h1 .t-thin{font-weight:200;letter-spacing:.04em;}
 .hero h1 .hl{
   color:var(--paper);                         /* 네비 배경색(아이보리)으로 채움 */
-  -webkit-text-stroke:4px var(--line);        /* 네비 아웃라인색으로 외곽선 */
+  -webkit-text-stroke:clamp(2px,0.35vw,4px) var(--line);   /* 화면 좁아지면 외곽선도 얇게 */
   paint-order:stroke fill;
   position:relative;white-space:nowrap;
 }
@@ -327,7 +327,7 @@ main > section.sec-cream > .wrap{background:var(--cream);}
 .projects-detail .modal-hd h3{color:var(--ink);}
 /* 부제·설명·정보박스 간격 좁히기 */
 .projects-detail .m-sub{margin-top:4px;}
-.projects-detail .m-desc{margin-bottom:14px;line-height:1.6;}
+.projects-detail .m-desc{margin-bottom:14px;line-height:1.6;max-width:600px;margin-left:auto;margin-right:auto;word-break:keep-all;text-wrap:balance;}   /* 폭 좁혀 단어 단위로 깔끔하게 줄바꿈 */
 .projects-detail .m-facts{margin-bottom:18px;}
 .projects-detail .m-fact .fv{text-align:right;}  /* 값만 오른쪽, 라벨은 왼쪽 그대로 */
 .m-logo-row{display:flex;align-items:center;gap:10px;margin-top:6px;flex-wrap:wrap;justify-content:center;}
@@ -637,6 +637,7 @@ footer{padding:24px 0 40px;position:relative;z-index:2;}   /* 다른 섹션과 �
 .foot .fname{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.02em;color:var(--ink);}
 .foot .frole{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-top:6px;}
 .foot .ftag{margin-top:14px;color:var(--ink-soft);font-size:13.5px;max-width:40ch;line-height:1.7;}
+.foot-cols{display:flex;gap:48px;}   /* CONNECT·NAVIGATE 묶음 — 좁아지면 함께 아랫줄로 나란히 */
 .foot-links{display:flex;flex-direction:column;gap:9px;}
 .foot-links .h{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:5px;}
 .foot-links a{font-size:13.5px;color:var(--ink-soft);transition:color .2s;}
@@ -693,6 +694,11 @@ body.modal-lock{overflow:hidden;}
   .outro{padding:14px 16px;}
   main > section > .wrap{padding:40px 24px;border-radius:var(--r-lg);}
   .m-facts{grid-template-columns:1fr;}
+  /* 프로젝트 상세: 모바일에서도 Period/Team/Role 1줄에 3개 (박스·글씨 축소) */
+  .projects-detail .m-facts{grid-template-columns:repeat(3,1fr);gap:6px;}
+  .projects-detail .m-fact{padding:9px 8px;}
+  .projects-detail .m-fact .fk{font-size:8px;letter-spacing:.06em;margin-bottom:4px;}
+  .projects-detail .m-fact .fv{font-size:10.5px;}
   .stat{min-width:calc(50% - 5px);}
   .modal-hd{padding:28px 24px 24px;}
   .modal-body{padding:28px 24px 32px;}
@@ -701,6 +707,28 @@ body.modal-lock{overflow:hidden;}
   .foot{padding:32px 26px;}
   .copy{padding:0 26px;}
   .hero-sign{font-size:clamp(64px,22vw,150px);}
+
+  /* Project: 모바일 — 콘텐츠 뒤 왼쪽에 얇은 책갈피 탭(팁만 빼꼼) */
+  .projects-layout{display:flex;align-items:flex-start;gap:0;}
+  .projects-sign{font-size:clamp(46px,15vw,72px);}
+  #projects .sec-head{padding-left:14px;transform:translateX(2mm);}     /* 01/PROJECT 살짝 오른쪽(+2mm) */
+  .projects{flex:0 0 auto;flex-direction:column;width:16px;gap:6px;margin-left:-26px;transform:translateX(calc(-14px + 2mm));position:relative;z-index:0;}  /* 0.5배 얇게, 화면 왼쪽 — 버튼도 +2mm 오른쪽 */
+  .projects .pcard{width:16px;}
+  .pcard-face{width:16px;min-height:54px;padding:0;border-radius:7px 0 0 7px;box-shadow:1px 2px 6px rgba(80,52,8,.22);}  /* 왼쪽 둥근 팁 */
+  .pcard-face h3,.pcard-face .pc-no,.pcard-face .pc-open{display:none;}
+  .pcard-face:hover,.pcard.active .pcard-face{transform:translateX(-2px);}
+  .projects-aside{flex:1 1 auto;min-width:0;position:relative;z-index:1;background:var(--paper);margin-left:-5px;padding-left:10px;}  /* 콘텐츠가 탭 뒤를 덮음 */
+
+  /* About 이름: 모바일에서 영문/한글 두 줄로 */
+  .about-title .about-namerow{flex-direction:column;align-items:flex-start;gap:4px;white-space:normal;}
+
+  /* Project 상세: 모바일에서 로고·글씨·여백 콤팩트하게 */
+  .projects-detail{transform:none;}                          /* 데스크탑 정렬용 -2cm 제거 */
+  .projects-detail .m-logo{height:58px;}                     /* 로고 축소 84→58 */
+  .projects-detail .m-sub{font-size:13px;}
+  .projects-detail .m-desc{font-size:13.5px;line-height:1.55;margin-bottom:14px;}
+  .projects-detail .pc-points li{font-size:13px;}
+  .projects-detail .chip{font-size:10.5px;padding:5px 10px;}
 }
 @media (prefers-reduced-motion: reduce){
   *{animation:none!important;transition:none!important;}
