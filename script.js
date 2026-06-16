@@ -156,15 +156,67 @@
 (function(){
   var W='assets/On_You_assets/On_You_web/';
   var M='assets/On_You_assets/On_You_mobile/';
-  var S='assets/Steam_web/';
-  var D='assets/De-registration_web/';
+  var S='assets/Steam_assets/Steam_web/';
+  var D='assets/De-registration_web_assets/';
+  var WD='assets/withDOG_assets/withDOG_web/';
+  var WDM='assets/withDOG_assets/withDOG_mobile/';
   var GAL={
+    'withdog-web':{ views:[
+      { tab:'Browser', type:'browser', url:'withDOG', dur:5000, shots:[
+        {src:WD+'withDOG_web_챗봇_반려견_동반_가능_장소_추천_1.gif', label:'챗봇 반려견 동반 가능 장소 추천'},
+        {src:WD+'withDOG_web_챗봇_그림일기_생성_2.gif', label:'챗봇 그림일기 생성'},
+        {src:WD+'withDOG_web_앨범 즐겨찾기와 캘린더 연동 및 일기 수정_3.gif', label:'앨범 즐겨찾기와 캘린더 연동 및 일기 수정'},
+        {src:WD+'withDOG_web_장소즐겨찾기와 그림일기 흐름_4.gif', label:'장소즐겨찾기와 그림일기 흐름'},
+        {src:WD+'withDOG_web_대표반려견 변경_5.gif', label:'대표반려견 변경'},
+        {src:WD+'withDOG_web_자유채팅_반려견_동반_가능_장소추천_6.gif', label:'자유채팅 반려견 동반 가능 장소추천'},
+        {src:WD+'withDOG_web_자유채팅_그림일기_생성_7.gif', label:'자유채팅 그림일기 생성'}
+      ]},
+      { tab:'Laptop', type:'laptop', url:'withDOG', dur:4000, shots:[
+        {src:WD+'withDOG_web_홈화면_비로그인_1.png', label:'홈화면 비로그인'},
+        {src:WD+'withDOG_web_소셜로그인_2.png', label:'소셜로그인'},
+        {src:WD+'withDOG_web_개인정보동의_3.png', label:'개인정보동의'},
+        {src:WD+'withDOG_web_회원가입_입력_전_4.png', label:'회원가입 입력 전', cls:'wd-scroll'},
+        {src:WD+'withDOG_web_회원가입_입력_후_5.png', label:'회원가입 입력 후', cls:'wd-scroll'},
+        {src:WD+'withDOG_web_온보딩_이미지_6.png', label:'온보딩 이미지'},
+        {src:WD+'withDOG_web_온보딩_버튼_7.png', label:'온보딩 버튼'},
+        {src:WD+'withDOG_web_홈화면_로그인_완료_8.png', label:'홈화면 로그인 완료'},
+        {src:WD+'withDOG_web_자유채팅_근처_반려견_동반_장소_추천_9.png', label:'자유채팅 근처 반려견 동반 장소 추천'},
+        {src:WD+'withDOG_web_챗봇_사진_변환_시_이미지_업로드_10.png', label:'챗봇 사진 변환 시 이미지 업로드'},
+        {src:WD+'withDOG_web_챗봇_사진_업로드_시_일러스트로_변환_11.png', label:'챗봇 사진 업로드 시 일러스트로 변환'},
+        {src:WD+'withDOG_web_유료_구독_패스_12.png', label:'유료 구독 패스'},
+        {src:WD+'withDOG_web_회원_탈퇴_13.png', label:'회원 탈퇴'}
+      ]}
+    ]},
+    'withdog-mobile':{ views:[
+      { tab:'Mobile', type:'phone', url:'withDOG · App', dur:4000, shots:[
+        {src:WDM+'withDOG_mobile_비로그인_홈_화면_1.png', label:'비로그인 홈 화면'},
+        {src:WDM+'withDOG_mobile_비로그인_챗봇_화면_2.png', label:'비로그인 챗봇 화면'},
+        {src:WDM+'withDOG_mobile_소셜_로그인_3.png', label:'소셜 로그인', cls:'wd-zoom'},
+        {src:WDM+'withDOG_mobile_온보딩_이미지_4.png', label:'온보딩 이미지'},
+        {src:WDM+'withDOG_mobile_홈_화면_배너_5.png', label:'홈 화면 배너', cls:'wd-noscale'},
+        {src:WDM+'withDOG_mobile_홈_화면_주간_달력과_장소_즐겨찾기_6.png', label:'홈 화면 주간 달력과 장소 즐겨찾기'},
+        {src:WDM+'withDOG_mobile_홈_상단_구독_패스_안내_7.png', label:'홈 상단 구독 패스 안내'},
+        {src:WDM+'withDOG_mobile_챗봇_탭_8.png', label:'챗봇 탭'},
+        {src:WDM+'withDOG_mobile_챗봇_그림일기_생성_9.png', label:'챗봇 그림일기 생성'},
+        {src:WDM+'withDOG_mobile_다이어리탭_달력_10.png', label:'다이어리탭 달력'},
+        {src:WDM+'withDOG_mobile_다이어리탭_그림일기_즐겨찾기_11.png', label:'다이어리탭 그림일기 즐겨찾기'},
+        {src:WDM+'withDOG_mobile_다이어리탭_그림일기_선택_시_출력화면_12.png', label:'다이어리탭 그림일기 선택 시 출력화면'},
+        {src:WDM+'withDOG_mobile_다이어리탭_월별_감정통계_분석화면_13.png', label:'다이어리탭 월별 감정통계 분석화면'},
+        {src:WDM+'withDOG_mobile_다이어리탭_월별_감정통계_분석화면_감정선택_시_14.png', label:'다이어리탭 월별 감정통계 분석화면 감정선택 시'},
+        {src:WDM+'withDOG_mobile_다이어리탭_월별_감정통계_감정선택_시_15.png', label:'다이어리탭 월별 감정통계 감정선택 시'},
+        {src:WDM+'withDOG_mobile_지도_탭_지도와_장소_즐겨찾기_16.png', label:'지도 탭 지도와 장소 즐겨찾기'},
+        {src:WDM+'withDOG_mobile_지도_탭_즐겨찾기한_장소_위치_표시_17.png', label:'지도 탭 즐겨찾기한 장소 위치 표시'},
+        {src:WDM+'withDOG_mobile_지도탭_장소_카드_정보_18.png', label:'지도탭 장소 카드 정보'},
+        {src:WDM+'withDOG_mobile_마이탭_상단_19.png', label:'마이탭 상단'},
+        {src:WDM+'withDOG_mobile_마이탭_하단_20.png', label:'마이탭 하단'}
+      ]}
+    ]},
     'dereg-web':{ views:[
       { tab:'Browser', type:'browser', url:'De-registration', dur:5000, shots:[
         {src:D+'De-registration_자동차_등록_현황_연도_및_지역_선택_1.gif', label:'자동차 등록 현황'},
         {src:D+'De-registration_자동차_폐차_현황_연도_및_지역_선택_2.gif', label:'자동차 폐차 현황'},
         {src:D+'De-registration_자동차_등록_폐차_비교_현황_연도_및_지역_선택_시_그래프_출력_3.gif', label:'등록·폐차 비교 현황'},
-        {src:D+'워De-registration_자동차_보험_FAQ_유형_및_단계와_질문_키워드_검색__4.gif', label:'보험 FAQ 검색'}
+        {src:D+'De-registration_자동차_보험_FAQ_유형_및_단계와_질문_키워드_검색_4.gif', label:'보험 FAQ 검색'}
       ]}
     ]},
     'steam-web':{ views:[
@@ -276,7 +328,7 @@
 
     var screen=mk('div', t==='phone'?'shot-screen':(t==='laptop'?'shot-lap-screen':'shot-stage'));
     shots.forEach(function(s,idx){
-      var img=mk('img','shot-slide'+(idx===0?' active':''));
+      var img=mk('img','shot-slide'+(idx===0?' active':'')+(s.cls?' '+s.cls:''));
       img.alt=s.label||('slide '+(idx+1));
       img.dataset.src=enc(s.src);
       if(idx===0) img.src=enc(s.src);
@@ -358,6 +410,7 @@
     var el=slideEls[current];
     el.src=el.dataset.src;                   // GIF 처음부터 재생
     el.classList.add('active');
+    if(el.parentNode) el.parentNode.scrollTop=0;   // 스크롤 화면: 항상 상단부터
     dotEls[current].classList.add('active');
     captionEl.textContent=shots[current].label||'';
     playCurrent();
