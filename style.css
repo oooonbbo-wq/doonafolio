@@ -1,5 +1,5 @@
 /* 포트폴리오 컨셉 — 레트로-모던 에디토리얼 리디자인
-   디자인 시스템: :root(라이트) / [data-theme="dark"](다크) 토큰으로 관리
+   디자인 시스템: :root 토큰(라이트 단일 테마)으로 색·radius·shadow·타이포 관리
    컨셉: 따뜻한 옐로우 grid 배경 위에 떠 있는 아이보리 패널 + 팬톤 컬러칩 UI */
 
 :root{
@@ -46,33 +46,6 @@
   --sans:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
   --mono:'Space Mono',ui-monospace,monospace;
   --maxw:1200px;
-}
-[data-theme="dark"]{
-  --paper:#1b1812;
-  --cream:#161309;
-  --grid-bg:#0f0d08;
-  --grid-line:rgba(255,198,120,.07);
-  --ink:#f6efe0;
-  --ink-soft:#c4bba8;
-  --ink-muted:#8a8170;
-  --line:#332c1f;
-  --line-soft:#262015;
-
-  --accent:#ffb133;
-  --accent-2:#ffc46a;
-  --accent-ink:#ffc266;
-  --accent-soft:rgba(255,177,51,.14);
-  --accent-glow:rgba(255,177,51,.20);
-
-  --blue:#6f86ff;
-  --blue-ink:#9fadff;
-  --blue-soft:rgba(95,123,255,.16);
-  --blue-glow:rgba(95,123,255,.22);
-
-  --shadow-sm:0 1px 2px rgba(0,0,0,.4);
-  --shadow-md:0 2px 8px rgba(0,0,0,.4),0 18px 48px rgba(0,0,0,.5);
-  --shadow-lg:0 10px 30px rgba(0,0,0,.5),0 44px 90px rgba(0,0,0,.6);
-  --shadow-chip:0 2px 0 var(--line),0 12px 28px rgba(0,0,0,.45);
 }
 
 /* ============================================================
@@ -153,18 +126,6 @@ nav.menu-open .nav-burger span:nth-child(1){transform:translateY(7.5px) rotate(4
 nav.menu-open .nav-burger span:nth-child(2){opacity:0;}
 nav.menu-open .nav-burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
 
-/* theme toggle */
-.toggle{
-  width:40px;height:40px;border-radius:var(--r-pill);border:1px solid var(--line);
-  background:var(--cream);cursor:pointer;display:grid;place-items:center;
-  color:var(--ink-soft);transition:all .25s;flex-shrink:0;
-}
-.toggle:hover{border-color:var(--accent);color:var(--accent-ink);transform:translateY(-1px) rotate(-12deg);background:var(--accent-soft);}
-.toggle svg{width:17px;height:17px;}
-.toggle .sun{display:none;}
-.toggle .moon{display:block;}
-[data-theme="dark"] .toggle .sun{display:block;}
-[data-theme="dark"] .toggle .moon{display:none;}
 
 /* ============================================================
    PANEL — grid 위에 떠 있는 큰 패널
@@ -329,7 +290,7 @@ main > section.sec-cream > .wrap{background:var(--cream);}
 .pcard.feat{grid-column:auto;}
 
 /* 오른쪽 영역 — 버튼 영역 빼고 가로·세로 센터 */
-.projects-aside{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100%;}
+.projects-aside{display:flex;flex-direction:column;justify-content:center;align-items:center;}
 .projects-intro{width:100%;}
 .projects-sign{
   font-family:'Lobster',var(--display);font-weight:400;color:var(--ink);
@@ -391,7 +352,7 @@ button.m-plat:hover{background:var(--ink);border-color:var(--ink);color:var(--pa
 .shot-scrim{position:fixed;inset:0;background:rgba(30,20,4,.55);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);}
 .shot-wrap{position:relative;z-index:2;width:min(960px,100%);transform:scale(.97);transition:transform .3s cubic-bezier(.2,.8,.25,1);}
 .shot-modal.open .shot-wrap{transform:none;}
-.shot-x{position:absolute;top:-46px;right:0;width:38px;height:38px;border-radius:var(--r-pill);border:none;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .2s;z-index:3;}
+.shot-x{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:var(--r-pill);border:none;background:rgba(255,255,255,.18);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .2s;z-index:10;}
 .shot-x:hover{background:rgba(255,255,255,.32);}
 .shot-x svg{width:18px;height:18px;}
 
@@ -464,7 +425,7 @@ button.m-plat:hover{background:var(--ink);border-color:var(--ink);color:var(--pa
 .shot-lap-screen .shot-progress{position:absolute;top:0;left:0;right:0;height:3px;z-index:5;}
 .shot-body.laptop .shot-slide{object-fit:contain;background:#fff;}   /* 크롭 없이 전체 표시 */
 /* 세로로 긴 화면(회원가입 등) — 가로폭 맞추고 세로 스크롤 */
-.shot-body.laptop .shot-lap-screen:has(.shot-slide.active.wd-scroll){overflow:hidden auto;}
+.shot-body.laptop .shot-lap-screen:has(.shot-slide.active.wd-scroll){overflow:hidden auto;aspect-ratio:auto;height:clamp(380px,56vh,580px);}
 .shot-body.laptop .shot-slide.wd-scroll{inset:auto;top:0;left:0;width:100%;height:auto;object-fit:fill;}
 
 /* 모드별 전체 크기 — Browser 크게, Laptop 작게 */
@@ -475,7 +436,7 @@ button.m-plat:hover{background:var(--ink);border-color:var(--ink);color:var(--pa
 @media(max-width:680px){
   .shot-body.browser .shot-footer{flex-direction:column;align-items:center;gap:8px;}
   .shot-nav{display:none;}   /* 좁은 화면: 스와이프로 */
-  .shot-x{top:-42px;}
+  .shot-x{top:12px;right:12px;}
 }
 .pd-back{
   display:inline-flex;align-items:center;gap:6px;margin:0 0 14px;
@@ -621,7 +582,7 @@ main > section.outro > .wrap{
   box-shadow:0 20px 60px var(--blue-glow);
 }
 .contact{position:relative;z-index:2;padding:96px 58px 84px;}
-.contact .clabel{font-family:var(--mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.contact .clabel{font-family:var(--mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.82);}
 .contact .ckicker{margin-top:24px;font-family:var(--display);font-size:clamp(18px,2.4vw,26px);color:#fff;font-weight:600;letter-spacing:-.02em;text-align:center;}
 /* 오리 이미지를 배경으로, 가운데에 이메일 주소 오버레이 */
 .contact .email{

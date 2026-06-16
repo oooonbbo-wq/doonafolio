@@ -163,13 +163,13 @@
   var GAL={
     'withdog-web':{ views:[
       { tab:'Browser', type:'browser', url:'withDOG', dur:5000, shots:[
-        {src:WD+'withDOG_web_챗봇_반려견_동반_가능_장소_추천_1.gif', label:'챗봇 반려견 동반 가능 장소 추천'},
-        {src:WD+'withDOG_web_챗봇_그림일기_생성_2.gif', label:'챗봇 그림일기 생성'},
-        {src:WD+'withDOG_web_앨범 즐겨찾기와 캘린더 연동 및 일기 수정_3.gif', label:'앨범 즐겨찾기와 캘린더 연동 및 일기 수정'},
-        {src:WD+'withDOG_web_장소즐겨찾기와 그림일기 흐름_4.gif', label:'장소즐겨찾기와 그림일기 흐름'},
-        {src:WD+'withDOG_web_대표반려견 변경_5.gif', label:'대표반려견 변경'},
-        {src:WD+'withDOG_web_자유채팅_반려견_동반_가능_장소추천_6.gif', label:'자유채팅 반려견 동반 가능 장소추천'},
-        {src:WD+'withDOG_web_자유채팅_그림일기_생성_7.gif', label:'자유채팅 그림일기 생성'}
+        {src:WD+'withDOG_web_챗봇_반려견_동반_가능_장소_추천_1.mp4', label:'챗봇 반려견 동반 가능 장소 추천'},
+        {src:WD+'withDOG_web_챗봇_그림일기_생성_2.mp4', label:'챗봇 그림일기 생성'},
+        {src:WD+'withDOG_web_앨범 즐겨찾기와 캘린더 연동 및 일기 수정_3.mp4', label:'앨범 즐겨찾기와 캘린더 연동 및 일기 수정'},
+        {src:WD+'withDOG_web_장소즐겨찾기와 그림일기 흐름_4.mp4', label:'장소즐겨찾기와 그림일기 흐름'},
+        {src:WD+'withDOG_web_대표반려견 변경_5.mp4', label:'대표반려견 변경'},
+        {src:WD+'withDOG_web_자유채팅_반려견_동반_가능_장소추천_6.mp4', label:'자유채팅 반려견 동반 가능 장소추천'},
+        {src:WD+'withDOG_web_자유채팅_그림일기_생성_7.mp4', label:'자유채팅 그림일기 생성'}
       ]},
       { tab:'Laptop', type:'laptop', url:'withDOG', dur:4000, shots:[
         {src:WD+'withDOG_web_홈화면_비로그인_1.png', label:'홈화면 비로그인'},
@@ -213,30 +213,30 @@
     ]},
     'dereg-web':{ views:[
       { tab:'Browser', type:'browser', url:'De-registration', dur:5000, shots:[
-        {src:D+'De-registration_자동차_등록_현황_연도_및_지역_선택_1.gif', label:'자동차 등록 현황'},
-        {src:D+'De-registration_자동차_폐차_현황_연도_및_지역_선택_2.gif', label:'자동차 폐차 현황'},
-        {src:D+'De-registration_자동차_등록_폐차_비교_현황_연도_및_지역_선택_시_그래프_출력_3.gif', label:'등록·폐차 비교 현황'},
-        {src:D+'De-registration_자동차_보험_FAQ_유형_및_단계와_질문_키워드_검색_4.gif', label:'보험 FAQ 검색'}
+        {src:D+'De-registration_자동차_등록_현황_연도_및_지역_선택_1.mp4', label:'자동차 등록 현황'},
+        {src:D+'De-registration_자동차_폐차_현황_연도_및_지역_선택_2.mp4', label:'자동차 폐차 현황'},
+        {src:D+'De-registration_자동차_등록_폐차_비교_현황_연도_및_지역_선택_시_그래프_출력_3.mp4', label:'등록·폐차 비교 현황'},
+        {src:D+'De-registration_자동차_보험_FAQ_유형_및_단계와_질문_키워드_검색_4.mp4', label:'보험 FAQ 검색'}
       ]}
     ]},
     'steam-web':{ views:[
       { tab:'Browser', type:'browser', url:'Steam Churn', dur:5000, shots:[
-        {src:S+'steam_web_사이트접속_1.gif', label:'사이트 접속'},
-        {src:S+'steam_web_실시간_리뷰_예측_2.gif', label:'실시간 리뷰 예측'},
-        {src:S+'steam_web_게임별_유저별_리뷰_단건_예측_3.gif', label:'게임별 유저별 리뷰 단건 예측'},
-        {src:S+'steam_web_인사이트_결과를_엑셀파일로_다운로드_4.gif', label:'인사이트 결과를 엑셀파일로 다운로드'}
+        {src:S+'steam_web_사이트접속_1.mp4', label:'사이트 접속'},
+        {src:S+'steam_web_실시간_리뷰_예측_2.mp4', label:'실시간 리뷰 예측'},
+        {src:S+'steam_web_게임별_유저별_리뷰_단건_예측_3.mp4', label:'게임별 유저별 리뷰 단건 예측'},
+        {src:S+'steam_web_인사이트_결과를_엑셀파일로_다운로드_4.mp4', label:'인사이트 결과를 엑셀파일로 다운로드'}
       ]}
     ]},
     'onyou-web':{ views:[
       { tab:'Browser', type:'browser', url:'On_You', dur:5000, shots:[
-        {src:W+'On_You_web_비로그인_채팅_1.gif', label:'비로그인 채팅'},
-        {src:W+'On_You_web_피부관리법_질문_2.gif', label:'피부관리법 질문'},
-        {src:W+'On_You_web_피부시술법_질문_3.gif', label:'피부시술법 질문'},
-        {src:W+'On_You_web_피부사진_빠른분석_4.gif', label:'피부사진 빠른분석'},
-        {src:W+'On_You_web_피부사진_정밀분석_5.gif', label:'피부사진 정밀분석'},
-        {src:W+'On_You_web_전성분사진_OCR정보추출_6.gif', label:'전성분사진 OCR정보추출'},
-        {src:W+'On_You_web_피부사진_퍼스널컬러분석_7.gif', label:'피부사진 퍼스널컬러분석'},
-        {src:W+'On_You_web_피부MBTI테스트_8.gif', label:'피부MBTI테스트'}
+        {src:W+'On_You_web_비로그인_채팅_1.mp4', label:'비로그인 채팅'},
+        {src:W+'On_You_web_피부관리법_질문_2.mp4', label:'피부관리법 질문'},
+        {src:W+'On_You_web_피부시술법_질문_3.mp4', label:'피부시술법 질문'},
+        {src:W+'On_You_web_피부사진_빠른분석_4.mp4', label:'피부사진 빠른분석'},
+        {src:W+'On_You_web_피부사진_정밀분석_5.mp4', label:'피부사진 정밀분석'},
+        {src:W+'On_You_web_전성분사진_OCR정보추출_6.mp4', label:'전성분사진 OCR정보추출'},
+        {src:W+'On_You_web_피부사진_퍼스널컬러분석_7.mp4', label:'피부사진 퍼스널컬러분석'},
+        {src:W+'On_You_web_피부MBTI테스트_8.mp4', label:'피부MBTI테스트'}
       ]},
       { tab:'Laptop', type:'laptop', url:'On_You', dur:4000, shots:[
         {src:W+'On_You_web_비로그인_1.png', label:'비로그인'},
@@ -256,22 +256,22 @@
     ]}
   };
   GAL['onyou-mobile'].views[0].shots=[
-    {src:M+'On_You_mobile_로그인과 회원가입_1.gif',label:'로그인과 회원가입'},
-    {src:M+'On_You_mobile_메인_홈_2.gif',label:'메인 홈'},
-    {src:M+'On_You_mobile_빠른분석_정면_실시간_사진촬영_3.gif',label:'빠른분석 정면 실시간 사진촬영'},
-    {src:M+'On_You_mobile_성분분석_후면_실시간_사진촬영_4.gif',label:'성분분석 후면 실시간 사진촬영'},
-    {src:M+'On_You_mobile_챗봇_제품추천과_위시리스트_등록_5.gif',label:'챗봇 제품추천과 위시리스트 등록'},
-    {src:M+'On_You_mobile_나의_위시리스트_홈화면_확인_및_삭제_6.gif',label:'나의 위시리스트 홈화면 확인 및 삭제'},
-    {src:M+'On_You_mobile_챗봇_제품추천_클릭_시_구매링크_연결_7.gif',label:'챗봇 제품추천 클릭 시 구매링크 연결'},
-    {src:M+'On_You_mobile_챗봇_빠른분석_8.gif',label:'챗봇 빠른분석'},
-    {src:M+'On_You_mobile_챗봇_정밀분석_9.gif',label:'챗봇 정밀분석'},
-    {src:M+'On_You_mobile_챗봇_성분분석_10.gif',label:'챗봇 성분분석'},
-    {src:M+'On_You_mobile_챗봇_퍼스널컬러분석_11.gif',label:'챗봇 퍼스널컬러분석'},
-    {src:M+'On_You_mobile_챗봇_채팅내역_삭제_12.gif',label:'챗봇 채팅내역 삭제'},
-    {src:M+'On_You_mobile_챗봇_채팅내역_기록_13.gif',label:'챗봇 채팅내역 기록'},
-    {src:M+'On_You_mobile_마이페이지_내_정보_수정_14.gif',label:'마이페이지 내 정보 수정'},
-    {src:M+'On_You_mobile_마이페이지_소셜연동,FAQ,고객문의,회원탈퇴_15.gif',label:'마이페이지 소셜연동,FAQ,고객문의,회원탈퇴'},
-    {src:M+'On_You_mobile_피부_MBTI_테스트_16.gif',label:'피부 MBTI 테스트'}
+    {src:M+'On_You_mobile_로그인과 회원가입_1.mp4',label:'로그인과 회원가입'},
+    {src:M+'On_You_mobile_메인_홈_2.mp4',label:'메인 홈'},
+    {src:M+'On_You_mobile_빠른분석_정면_실시간_사진촬영_3.mp4',label:'빠른분석 정면 실시간 사진촬영'},
+    {src:M+'On_You_mobile_성분분석_후면_실시간_사진촬영_4.mp4',label:'성분분석 후면 실시간 사진촬영'},
+    {src:M+'On_You_mobile_챗봇_제품추천과_위시리스트_등록_5.mp4',label:'챗봇 제품추천과 위시리스트 등록'},
+    {src:M+'On_You_mobile_나의_위시리스트_홈화면_확인_및_삭제_6.mp4',label:'나의 위시리스트 홈화면 확인 및 삭제'},
+    {src:M+'On_You_mobile_챗봇_제품추천_클릭_시_구매링크_연결_7.mp4',label:'챗봇 제품추천 클릭 시 구매링크 연결'},
+    {src:M+'On_You_mobile_챗봇_빠른분석_8.mp4',label:'챗봇 빠른분석'},
+    {src:M+'On_You_mobile_챗봇_정밀분석_9.mp4',label:'챗봇 정밀분석'},
+    {src:M+'On_You_mobile_챗봇_성분분석_10.mp4',label:'챗봇 성분분석'},
+    {src:M+'On_You_mobile_챗봇_퍼스널컬러분석_11.mp4',label:'챗봇 퍼스널컬러분석'},
+    {src:M+'On_You_mobile_챗봇_채팅내역_삭제_12.mp4',label:'챗봇 채팅내역 삭제'},
+    {src:M+'On_You_mobile_챗봇_채팅내역_기록_13.mp4',label:'챗봇 채팅내역 기록'},
+    {src:M+'On_You_mobile_마이페이지_내_정보_수정_14.mp4',label:'마이페이지 내 정보 수정'},
+    {src:M+'On_You_mobile_마이페이지_소셜연동,FAQ,고객문의,회원탈퇴_15.mp4',label:'마이페이지 소셜연동,FAQ,고객문의,회원탈퇴'},
+    {src:M+'On_You_mobile_피부_MBTI_테스트_16.mp4',label:'피부 MBTI 테스트'}
   ];
 
   var modal=document.getElementById('shotModal');
@@ -328,12 +328,22 @@
 
     var screen=mk('div', t==='phone'?'shot-screen':(t==='laptop'?'shot-lap-screen':'shot-stage'));
     shots.forEach(function(s,idx){
-      var img=mk('img','shot-slide'+(idx===0?' active':'')+(s.cls?' '+s.cls:''));
-      img.alt=s.label||('slide '+(idx+1));
-      img.dataset.src=enc(s.src);
-      if(idx===0) img.src=enc(s.src);
-      screen.appendChild(img);
-      slideEls.push(img);
+      var isVid=/\.(mp4|webm)(\?|$)/i.test(s.src);
+      var el, cls='shot-slide'+(idx===0?' active':'')+(s.cls?' '+s.cls:'');
+      if(isVid){
+        el=mk('video',cls);
+        el.muted=true; el.loop=true; el.playsInline=true; el.preload='none';
+        el.setAttribute('muted',''); el.setAttribute('playsinline','');
+        el.setAttribute('aria-label', s.label||('slide '+(idx+1)));
+      } else {
+        el=mk('img',cls);
+        el.alt=s.label||('slide '+(idx+1));
+        el.loading='lazy'; el.decoding='async';
+      }
+      el.dataset.src=enc(s.src);
+      if(idx===0){ el.src=enc(s.src); if(isVid){ el.autoplay=true; el.setAttribute('autoplay',''); var p=el.play&&el.play(); if(p&&p.catch) p.catch(function(){}); } }
+      screen.appendChild(el);
+      slideEls.push(el);
     });
 
     var progWrap=mk('div','shot-progress'); progressFill=mk('div','shot-progress-fill'); progWrap.appendChild(progressFill);
@@ -404,11 +414,19 @@
 
   function goTo(i){
     if(!shots.length) return;
-    slideEls[current].classList.remove('active');
+    var prev=slideEls[current];
+    prev.classList.remove('active');
+    if(prev.tagName==='VIDEO' && prev.pause) prev.pause();
     dotEls[current].classList.remove('active');
     current=(i+shots.length)%shots.length;
     var el=slideEls[current];
-    el.src=el.dataset.src;                   // GIF 처음부터 재생
+    if(el.tagName==='VIDEO'){
+      if(!el.getAttribute('src')) el.src=el.dataset.src;   // lazy 첫 로드
+      try{ el.currentTime=0; }catch(e){}
+      var pp=el.play&&el.play(); if(pp&&pp.catch) pp.catch(function(){});
+    } else {
+      el.src=el.dataset.src;                 // GIF/이미지 처음부터 재생
+    }
     el.classList.add('active');
     if(el.parentNode) el.parentNode.scrollTop=0;   // 스크롤 화면: 항상 상단부터
     dotEls[current].classList.add('active');
@@ -433,20 +451,25 @@
     paused=false;
     playCurrent();
   }
+  var lastFocus=null;
   function openGal(key){
     var gal=GAL[key]; if(!gal||!gal.views) return;
+    lastFocus=document.activeElement;             // 닫을 때 복귀할 포커스 저장
     curViews=gal.views; viewIdx=0;
     modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
     document.body.classList.add('modal-lock');
     body.setAttribute('data-gal', key);
     open=true;
     openView(0);
+    var closeBtn=modal.querySelector('.shot-x');   // 포커스를 모달 안으로 이동
+    if(closeBtn) closeBtn.focus();
   }
   function closeGal(){
     open=false; cancelAnimationFrame(rafId);
     modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
     document.body.classList.remove('modal-lock');
     slideEls.forEach(function(el){ el.src=''; });   // GIF 메모리 해제
+    if(lastFocus && lastFocus.focus){ lastFocus.focus(); lastFocus=null; }  // 포커스 복귀
   }
 
   body.addEventListener('mouseenter',pause);

@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Lobster&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 
-<link rel="stylesheet" href="style.css?v=36">
+<link rel="stylesheet" href="style.css?v=39">
 </head>
 <body>
 
@@ -537,14 +537,14 @@
   <div class="wrap">
     <div class="contact">
       <div class="clabel reveal">Contact</div>
-      <div class="ckicker reveal">함께 좋은 서비스를 만들고 싶습니다</div>
       <a class="email reveal" href="mailto:doona0429@gmail.com" aria-label="doona0429@gmail.com 메일 보내기">
         <span class="email-duck" aria-hidden="true">
-          <img class="duck-img duck-default" src="assets/doonafolio_duck_default.png" alt="">
-          <img class="duck-img duck-active" src="assets/doonafolio_duck_active.png" alt="">
+          <img class="duck-img duck-default" src="assets/doonafolio_duck_default.png" alt="" width="720" height="720" loading="lazy" decoding="async">
+          <img class="duck-img duck-active" src="assets/doonafolio_duck_active.png" alt="" width="720" height="720" loading="lazy" decoding="async">
         </span>
         <span class="email-text">doona0429@gmail.com</span>
       </a>
+      <div class="ckicker reveal">함께 좋은 서비스를 만들고 싶습니다</div>
       <div class="crule reveal"></div>
       <div class="cgrid">
         <div class="col reveal">
@@ -602,14 +602,14 @@
 <!-- SCREENSHOT SHOWCASE (브라우저/폰 슬라이드쇼) -->
 <div class="shot-modal" id="shotModal" aria-hidden="true">
   <div class="shot-scrim" data-shot-close></div>
+  <button class="shot-x" type="button" data-shot-close aria-label="닫기">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
   <div class="shot-wrap" role="dialog" aria-modal="true" aria-label="화면 미리보기">
-    <button class="shot-x" type="button" data-shot-close aria-label="닫기">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
     <div class="shot-body" id="shotBody"></div>
   </div>
 </div>
 
-<script src="script.js?v=30" defer></script>
+<script src="script.js?v=32" defer></script>
 </body>
 </html>
