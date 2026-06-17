@@ -726,6 +726,7 @@ body.modal-lock{overflow:hidden;}
   .click-hint{order:-1;flex-direction:column;margin-top:0;margin-bottom:12px;}
   .click-hint span{display:block;text-align:center;}
   .ch-arrow::before{content:'↑';}
+  .projects-aside.detail-open .projects-intro{display:none;}
 
   /* About 이름: 모바일에서 영문/한글 두 줄로 */
   .about-title .about-namerow{flex-direction:column;align-items:flex-start;gap:4px;white-space:normal;}
