@@ -310,6 +310,7 @@ main > section.sec-cream > .wrap{background:var(--cream);}
 @keyframes taglinein{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 
 /* ← Click 힌트 — Scroll 안내와 동일한 폰트·크기·효과(두둥실+호흡) */
+.ch-arrow::before{content:'←';}
 .click-hint{
   display:flex;justify-content:center;align-items:center;margin-top:20px;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
@@ -673,6 +674,7 @@ body.modal-lock{overflow:hidden;}
   main > section > .wrap{padding:48px 36px;}
 }
 @media(max-width:680px){
+  .li-tech{display:block;margin-top:8px;}
   .wrap{padding:0 16px;}
   nav{padding:8px 8px 8px 16px;}
   .nav-burger{display:flex;}
@@ -708,16 +710,22 @@ body.modal-lock{overflow:hidden;}
   .copy{padding:0 26px;}
   .hero-sign{font-size:clamp(64px,22vw,150px);}
 
-  /* Project: 모바일 — 콘텐츠 뒤 왼쪽에 얇은 책갈피 탭(팁만 빼꼼) */
-  .projects-layout{display:flex;align-items:flex-start;gap:0;}
+  /* Project: 모바일 — 탭을 아이보리 패널 밖 위에 배치 */
+  #projects > .wrap{position:relative;margin-top:24px;padding-top:20px;overflow:visible;}
+  .projects-layout{display:flex;flex-direction:column;gap:12px;}
+  .projects{position:absolute;top:-31px;left:20px;right:20%;width:auto;flex-direction:row;gap:4px;margin:0;transform:none;z-index:0;}
+  .projects .pcard{width:auto;flex:1;}
+  .pcard-face{width:100%;min-height:30px;padding:0 8px;border-radius:0;box-shadow:none;justify-content:center;align-items:flex-start;}
+  .pcard-face h3,.pcard-face .pc-open{display:none;}
+  .pcard-face .pc-no{position:static;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-align:left;max-width:none;line-height:1;}
+  .pcard-face:hover,.pcard.active .pcard-face{transform:none;filter:brightness(1.08);}
+  #projects .sec-head{padding-left:0;transform:none;position:relative;z-index:1;}
+  .projects-aside{flex:none;width:100%;margin-left:0;padding-left:0;background:transparent;}
   .projects-sign{font-size:clamp(46px,15vw,72px);}
-  #projects .sec-head{padding-left:14px;transform:translateX(2mm);}     /* 01/PROJECT 살짝 오른쪽(+2mm) */
-  .projects{flex:0 0 auto;flex-direction:column;width:16px;gap:6px;margin-left:-26px;transform:translateX(calc(-14px + 2mm));position:relative;z-index:0;}  /* 0.5배 얇게, 화면 왼쪽 — 버튼도 +2mm 오른쪽 */
-  .projects .pcard{width:16px;}
-  .pcard-face{width:16px;min-height:54px;padding:0;border-radius:7px 0 0 7px;box-shadow:1px 2px 6px rgba(80,52,8,.22);}  /* 왼쪽 둥근 팁 */
-  .pcard-face h3,.pcard-face .pc-no,.pcard-face .pc-open{display:none;}
-  .pcard-face:hover,.pcard.active .pcard-face{transform:translateX(-2px);}
-  .projects-aside{flex:1 1 auto;min-width:0;position:relative;z-index:1;background:var(--paper);margin-left:-5px;padding-left:10px;}  /* 콘텐츠가 탭 뒤를 덮음 */
+  .projects-intro{display:flex;flex-direction:column;}
+  .click-hint{order:-1;flex-direction:column;margin-top:0;margin-bottom:12px;}
+  .click-hint span{display:block;text-align:center;}
+  .ch-arrow::before{content:'↑';}
 
   /* About 이름: 모바일에서 영문/한글 두 줄로 */
   .about-title .about-namerow{flex-direction:column;align-items:flex-start;gap:4px;white-space:normal;}
